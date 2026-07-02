@@ -2,14 +2,25 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7L0KRTJCV"></script>
+  <!-- Google Analytics — Consent Mode v2 (RGPD) : refusé par défaut, activé seulement après consentement -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
     gtag('js', new Date());
-    gtag('config', 'G-F7L0KRTJCV');
+    gtag('config', 'G-F7L0KRTJCV', { anonymize_ip: true });
+    try {
+      if (localStorage.getItem('ff_consent') === 'granted') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    } catch(e) {}
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7L0KRTJCV"></script>
   <script>try{localStorage.removeItem("ff_dark");document.documentElement.classList.remove("dark");}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FrenchGo — Apprendre le français</title>
@@ -20701,8 +20712,8 @@ function renderLeaderboard(){
           var isMe=r.id===user.uid;
           return '<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);'+(isMe?'font-weight:900;':'')+'">'
             +'<span style="font-size:16px;width:24px;text-align:center;">'+(medals[i]||(i+1)+'.')+'</span>'
-            +'<span style="flex:1;font-size:14px;color:'+(isMe?'var(--indigo)':'var(--text)')+';">'+(r.name||'—')+'</span>'
-            +'<span style="font-size:14px;font-weight:800;color:var(--indigo);">'+r.xp+' XP</span>'
+            +'<span style="flex:1;font-size:14px;color:'+(isMe?'var(--indigo)':'var(--text)')+';">'+_esc(r.name||'—')+'</span>'
+            +'<span style="font-size:14px;font-weight:800;color:var(--indigo);">'+(Number(r.xp)||0)+' XP</span>'
             +'</div>';
         }).join('');
         var re=document.getElementById('leaderboard-rows');
@@ -21417,7 +21428,7 @@ function runGlobalSearch(q) {
   }
 
   if (!totalCount) {
-    var emptyLbl = lang==='en'?'No results for "'+q+'"':lang==='zh'?'没有找到"'+q+'"的结果':'Aucun résultat pour « '+q+' »';
+    var emptyLbl = lang==='en'?'No results for "'+escHtml(q)+'"':lang==='zh'?'没有找到"'+escHtml(q)+'"的结果':'Aucun résultat pour « '+escHtml(q)+' »';
     html_out = '<div class="search-empty">'+emptyLbl+'</div>';
   }
 
@@ -22200,7 +22211,7 @@ function _renderQD(dataArr) {
   _startQuizTimer();
 }
 
-function _esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function _esc(s) { return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
 
 function _renderMCQ(d) {
   var labels = ['A','B','C','D'];
@@ -23841,11 +23852,14 @@ function initApp() {
   checkPendingNotification();
   // Defer updateLastActive — defined in Firebase script block (loaded after this one)
   setTimeout(function(){ if (typeof updateLastActive === 'function') updateLastActive(); }, 200);
-  // Wire up onboarding lang buttons
-  ['fr','en','zh'].forEach(l => {
-    const b = document.getElementById('ob-lang-'+l);
-    if (b) b.addEventListener('click', ()=>obUpdateLang(l));
-  });
+  // Wire up onboarding lang buttons (guard: initApp peut être appelé 2x — boot + finishOnboarding)
+  if (!window._obLangWired) {
+    window._obLangWired = true;
+    ['fr','en','zh'].forEach(l => {
+      const b = document.getElementById('ob-lang-'+l);
+      if (b) b.addEventListener('click', ()=>obUpdateLang(l));
+    });
+  }
 }
 
 /* BOOT */
@@ -26690,7 +26704,7 @@ function _duelCheckOpp() {
     var html = '<div style="text-align:center;">';
     html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">';
     html += '<div style="background:linear-gradient(135deg,#6366f1,#4f46e5);border-radius:14px;padding:16px;color:white;"><div style="font-size:0.8rem;opacity:0.8;">'+(lang==='en'?'You':'Toi')+'</div><div style="font-size:2rem;font-weight:800;">'+myScore+'</div></div>';
-    html += '<div style="background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:14px;padding:16px;color:white;"><div style="font-size:0.8rem;opacity:0.8;">'+oppName+'</div><div style="font-size:2rem;font-weight:800;">'+(oppScore!==null?oppScore:'…')+'</div></div>';
+    html += '<div style="background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:14px;padding:16px;color:white;"><div style="font-size:0.8rem;opacity:0.8;">'+_esc(oppName)+'</div><div style="font-size:2rem;font-weight:800;">'+(oppScore!==null?(Number(oppScore)||0):'…')+'</div></div>';
     html += '</div>';
     var result = oppScore===null?'⏳':myScore>oppScore?'🏆 '+(lang==='en'?'You win!':'Tu gagnes !'):myScore<oppScore?'😢 '+(lang==='en'?'You lose':'Tu perds'):'🤝 '+(lang==='en'?'Tie!':'Égalité !');
     html += '<div style="font-size:1.2rem;font-weight:700;margin-bottom:16px;">'+result+'</div>';
@@ -26942,5 +26956,51 @@ window.addEventListener('unhandledrejection', function(e) {
     <div id="duel-body"></div>
   </div>
 </div>
+
+<!-- ══ BANNIÈRE DE CONSENTEMENT ANALYTICS (RGPD) ══ -->
+<script>
+(function() {
+  try { if (localStorage.getItem('ff_consent')) return; } catch(e) { return; }
+  function show() {
+    var l = 'fr';
+    try { l = localStorage.getItem('ff_lang') || 'fr'; } catch(e) {}
+    var txt = l==='en' ? 'FrenchGo uses anonymous statistics to improve the app. Do you accept?'
+            : l==='zh' ? 'FrenchGo 使用匿名统计数据来改进应用。您接受吗？'
+            : 'FrenchGo utilise des statistiques anonymes pour améliorer l\'app. Acceptez-vous ?';
+    var okLbl = l==='en' ? 'Accept' : l==='zh' ? '接受' : 'Accepter';
+    var noLbl = l==='en' ? 'Decline' : l==='zh' ? '拒绝' : 'Refuser';
+    var b = document.createElement('div');
+    b.id = 'consent-banner';
+    b.setAttribute('style', 'position:fixed;left:12px;right:12px;bottom:12px;z-index:10001;background:#1E1B4B;color:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 8px 30px rgba(0,0,0,0.35);font-size:13.5px;line-height:1.45;');
+    var p = document.createElement('div');
+    p.textContent = '🍪 ' + txt;
+    p.style.marginBottom = '10px';
+    var row = document.createElement('div');
+    row.setAttribute('style', 'display:flex;gap:8px;justify-content:flex-end;');
+    function mkBtn(label, primary) {
+      var btn = document.createElement('button');
+      btn.textContent = label;
+      btn.setAttribute('style', 'border:none;border-radius:10px;padding:9px 18px;font-size:13.5px;font-weight:700;cursor:pointer;'
+        + (primary ? 'background:#6366F1;color:#fff;' : 'background:rgba(255,255,255,0.14);color:#fff;'));
+      return btn;
+    }
+    var no = mkBtn(noLbl, false), ok = mkBtn(okLbl, true);
+    no.onclick = function() {
+      try { localStorage.setItem('ff_consent', 'denied'); } catch(e) {}
+      b.remove();
+    };
+    ok.onclick = function() {
+      try { localStorage.setItem('ff_consent', 'granted'); } catch(e) {}
+      try { gtag('consent', 'update', { analytics_storage: 'granted' }); } catch(e) {}
+      b.remove();
+    };
+    row.appendChild(no); row.appendChild(ok);
+    b.appendChild(p); b.appendChild(row);
+    document.body.appendChild(b);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', show);
+  else show();
+})();
+</script>
 </body>
 </html>
