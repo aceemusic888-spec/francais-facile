@@ -15,6 +15,7 @@ const IP_LIMIT_PER_HOUR  = 30;   // per IP per hour
 const GLOBAL_DAILY_LIMIT = 500;  // total across all users per day
 
 const ALLOWED_ORIGINS = [
+  'https://francaisgo.netlify.app',
   'https://francais-go.netlify.app',
   'https://frenchgo.app',
   'https://www.frenchgo.app',
