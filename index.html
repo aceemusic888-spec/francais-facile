@@ -21222,18 +21222,39 @@ function addVocabSpeakBtns(container) {
     const text = td.textContent.trim();
     if (!text) return;
     // Lettres isolees et combinaisons (ch, an / am, eau / au, A a...) : la
-    // synthese les epelle au lieu de les prononcer. Quand la ligne porte une
-    // notation API entre crochets, on l'envoie comme phoneme et on ne garde
-    // que la premiere variante avant le slash.
+    // synthese les epelle au lieu de les prononcer. On tente d'abord le
+    // phoneme API de la ligne, sinon on prononce un mot d'exemple.
     let spokenText = text, ipa = '';
     const head = text.split('/')[0].trim();
     if (head.replace(/\s+/g, '').length <= 4) {
       const cells = row.querySelectorAll('td');
+      let rawIpa = '', example = '';
       for (let i = 1; i < cells.length; i++) {
-        const m = cells[i].textContent.match(/\[([^\]]+)\]/);
-        if (m && m[1].trim()) { ipa = m[1].trim(); break; }
+        const cellText = cells[i].textContent;
+        const m = cellText.match(/\[([^\]]+)\]/);
+        if (!rawIpa && m && m[1].trim()) rawIpa = m[1].trim();
+        // Colonne d'exemples : on retire les crochets API, les parentheses
+        // (y compris les pleine-chasse des versions chinoises) et on ne garde
+        // que le premier mot s'il est bien latin — sinon la synthese lirait
+        // aussi la glose chinoise.
+        const plain = cellText.replace(/\[[^\]]*\]/g, '')
+                              .replace(/\([^)]*\)/g, '')
+                              .replace(/（[^）]*）/g, '').trim();
+        const firstWord = plain.split(/[,，、]/)[0].trim();
+        // Doit commencer par une lettre : ecarte les terminaisons des
+        // tableaux de conjugaison (-ais, -ait...).
+        if (/^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ' -]{2,}$/.test(firstWord)) example = firstWord;
       }
-      if (ipa) spokenText = head;
+      // Une notation API dans la ligne = tableau de prononciation. Sans elle
+      // (conjugaison, articles...), on ne touche a rien.
+      if (rawIpa) {
+        // Google TTS ignore un phoneme isole ([ʃ], [ɑ̃]) et se remet a epeler.
+        // On ne l'utilise donc qu'a partir de deux segments ([be], [wa]) ;
+        // sinon on fait entendre le son dans un vrai mot.
+        const segs = rawIpa.normalize('NFD').replace(/[\u0300-\u036f\u02d0\u02d1]/g, '').length;
+        if (segs >= 2)    { ipa = rawIpa; spokenText = head; }
+        else if (example) { spokenText = example; }
+      }
     }
     const btn = document.createElement('button');
     btn.className = 'speak-btn';
