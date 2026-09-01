@@ -1561,14 +1561,14 @@ window._splashFailsafe = setTimeout(function() {
       </div>
       <div style="font-size:36px;flex-shrink:0;margin-left:10px;">🏆</div>
     </div>
+    <div class="section-title" id="home-continue-title"></div>
+    <div id="home-continue"></div>
     <div id="home-daily-wrap"></div>
     <div id="home-unlocked"></div>
     <div id="streak-card-wrap"></div>
     <div id="home-goal-tip"></div>
     <div id="home-level-prog"></div>
     <div id="home-quick-review-wrap"></div>
-    <div class="section-title" id="home-continue-title"></div>
-    <div id="home-continue"></div>
     <div class="section-title" id="home-start-title"></div>
     <div class="card lesson-card" id="home-first-card" onclick="openLesson(0)">
       <span class="level-tag beginner" id="home-first-tag"></span>
@@ -20240,11 +20240,11 @@ function toggleTTSSpeed(triggeredBtn) {
 function stopFr() {
   if (_currentTTSAudio) { try { _currentTTSAudio.pause(); _currentTTSAudio.currentTime = 0; } catch(e){} _currentTTSAudio = null; }
 }
-function playFr(text, onEnd, btnEl) {
+function playFr(text, onEnd, btnEl, ipa) {
   if (!text) { if (onEnd) onEnd(); return; }
   stopFr();
   var slow = _ttsSlowMode;
-  var cacheKey = text + (slow ? '||slow' : '');
+  var cacheKey = text + (slow ? '||slow' : '') + (ipa ? '||ipa:' + ipa : '');
   // Loading state helpers
   function _setLoading(on) {
     if (!btnEl) return;
@@ -20266,7 +20266,8 @@ function playFr(text, onEnd, btnEl) {
     return;
   }
   _setLoading(true);
-  fetch('/api/tts?q=' + encodeURIComponent(text) + (slow ? '&speed=slow' : ''))
+  fetch('/api/tts?q=' + encodeURIComponent(text) + (slow ? '&speed=slow' : '')
+        + (ipa ? '&ipa=' + encodeURIComponent(ipa) : ''))
     .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
     .then(function(d){
       _setLoading(false);
@@ -21220,14 +21221,28 @@ function addVocabSpeakBtns(container) {
     if (!td || td.querySelector('.speak-btn')) return;
     const text = td.textContent.trim();
     if (!text) return;
+    // Lettres isolees et combinaisons (ch, an / am, eau / au, A a...) : la
+    // synthese les epelle au lieu de les prononcer. Quand la ligne porte une
+    // notation API entre crochets, on l'envoie comme phoneme et on ne garde
+    // que la premiere variante avant le slash.
+    let spokenText = text, ipa = '';
+    const head = text.split('/')[0].trim();
+    if (head.replace(/\s+/g, '').length <= 4) {
+      const cells = row.querySelectorAll('td');
+      for (let i = 1; i < cells.length; i++) {
+        const m = cells[i].textContent.match(/\[([^\]]+)\]/);
+        if (m && m[1].trim()) { ipa = m[1].trim(); break; }
+      }
+      if (ipa) spokenText = head;
+    }
     const btn = document.createElement('button');
     btn.className = 'speak-btn';
     btn.textContent = '🔊';
     btn.title = 'Écouter';
     btn.onclick = function(e) {
       e.stopPropagation();
-      if (typeof playFr === 'function') playFr(text, null, btn);
-      else speak(text);
+      if (typeof playFr === 'function') playFr(spokenText, null, btn, ipa);
+      else speak(spokenText);
     };
     td.appendChild(btn);
   });
@@ -21916,6 +21931,9 @@ function renderHome() {
     } else {
       cont.innerHTML = '';
     }
+    // Pas de titre orphelin quand il n'y a rien a reprendre
+    var contTitle = document.getElementById('home-continue-title');
+    if (contTitle) contTitle.style.display = cont.innerHTML ? '' : 'none';
   }
   } catch(_e) { console.warn('[FG] renderHome error:', _e); }
 }
