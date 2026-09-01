@@ -111,6 +111,10 @@ export default async (req, context) => {
   const url  = new URL(req.url);
   const text = url.searchParams.get('q') || '';
   const slow = url.searchParams.get('speed') === 'slow';
+  // Optional IPA phoneme: lets us pronounce isolated letters and letter
+  // combinations (ch, an, eau...) as sounds instead of spelling them out.
+  const ipaRaw = url.searchParams.get('ipa') || '';
+  const ipa = /^[^<>&"']{1,40}$/.test(ipaRaw) ? ipaRaw : '';
 
   if (!text || text.length > 500) {
     return new Response(JSON.stringify({ error: 'Invalid text' }), {
@@ -127,28 +131,52 @@ export default async (req, context) => {
     });
   }
 
-  try {
-    const ttsRes = await fetch(
+  function xmlEscape(v) {
+    return String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+  }
+
+  function buildBody(useSsml) {
+    const input = useSsml
+      ? { ssml: `<speak><phoneme alphabet="ipa" ph="${xmlEscape(ipa)}">${xmlEscape(text)}</phoneme></speak>` }
+      : { text };
+    return JSON.stringify({
+      input,
+      voice: {
+        languageCode: 'fr-FR',
+        name: 'fr-FR-Neural2-C',
+        ssmlGender: 'FEMALE',
+      },
+      audioConfig: {
+        audioEncoding: 'MP3',
+        speakingRate: slow ? 0.65 : 0.90,
+        pitch: 0,
+        volumeGainDb: 0,
+      },
+    });
+  }
+
+  function synthesize(useSsml) {
+    return fetch(
       `https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          input: { text },
-          voice: {
-            languageCode: 'fr-FR',
-            name: 'fr-FR-Neural2-C',
-            ssmlGender: 'FEMALE',
-          },
-          audioConfig: {
-            audioEncoding: 'MP3',
-            speakingRate: slow ? 0.65 : 0.90,
-            pitch: 0,
-            volumeGainDb: 0,
-          },
-        }),
+        body: buildBody(useSsml),
       }
     );
+  }
+
+  try {
+    const wantSsml = !!ipa;
+    let ttsRes = await synthesize(wantSsml);
+
+    // SSML refused (phoneme unsupported by the voice, malformed IPA...) :
+    // retry once in plain text rather than returning an error.
+    if (!ttsRes.ok && wantSsml) {
+      console.warn('[TTS] SSML rejected, falling back to plain text:', ttsRes.status);
+      ttsRes = await synthesize(false);
+    }
 
     if (!ttsRes.ok) {
       const errText = await ttsRes.text();
