@@ -15259,7 +15259,7 @@ window.addEventListener('DOMContentLoaded', function() {
   if (typeof _idbRestoreIfNeeded === 'function') _idbRestoreIfNeeded();
 });
 let lang       = localStorage.getItem('ff_lang') || 'fr';
-localStorage.removeItem('ff_dark'); let darkMode = false;
+let darkMode   = localStorage.getItem('ff_dark') === '1';
 let currentTab = 'home';
 let currentLesson = null;
 let currentLessonPageIdx = 0;
