@@ -21652,6 +21652,14 @@ function renderCurrentView() {
   // Vocab search placeholder
   var vs = document.getElementById('vocab-search');
   if (vs) vs.placeholder = lang==='en'?'Search a word…':lang==='zh'?'搜索词语…':'Rechercher un mot…';
+  // Global search placeholder
+  var gs = document.getElementById('global-search-input');
+  if (gs) gs.placeholder = lang==='en'?'Search lessons, words, verbs…':lang==='zh'?'搜索课程、单词、动词…':'Rechercher leçons, mots, verbes...';
+  // TCF/TEF/DELF banner on home
+  var dl = document.getElementById('delf-home-label');
+  if (dl) dl.textContent = lang==='en'?'Official exam prep':lang==='zh'?'官方考试备考':'Préparation officielle';
+  var ds = document.getElementById('delf-home-sub');
+  if (ds) ds.textContent = lang==='en'?'Tests · Strategies · Speaking · Writing →':lang==='zh'?'模拟测试 · 应试策略 · 口语 · 写作 →':'Tests · Stratégies · Oral · Écrit →';
   if (currentTab==='home')       renderHome();
   if (currentTab==='lessons')    renderLessonsList();
   if (currentTab==='progress')   renderProgress();
@@ -23887,6 +23895,8 @@ function initApp() {
   initMascot();
   showTab('home');
   updateNav();
+  // Applique la langue enregistrée dès le démarrage (sinon l'UI reste en français)
+  try { renderCurrentView(); } catch(_e) { console.warn('[FG] initApp renderCurrentView', _e); }
   // hideSplash() est appelé dans le boot IIFE (après décision onboarding)
   checkPendingNotification();
   // Defer updateLastActive — defined in Firebase script block (loaded after this one)

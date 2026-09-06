@@ -18,11 +18,11 @@ messaging.onBackgroundMessage(function(payload) {
   const body  = (payload.notification && payload.notification.body)  || 'Temps de pratiquer le français !';
   return self.registration.showNotification(title, {
     body,
-    icon:     '/icon-192.png',
-    badge:    '/icon-192.png',
-    tag:      'frenchgo-daily',
+    icon: '/icon-192.png',
+    badge: '/icon-192.png',
+    tag: 'frenchgo-daily',
     renotify: true,
-    data:     { url: '/' }
+    data: { url: '/' }
   });
 });
 
@@ -39,8 +39,8 @@ self.addEventListener('notificationclick', function(event) {
 });
 
 // ── Cache strategy ────────────────────────────────────────
-const CACHE_NAME = 'frenchgo-v8';
-const TTS_CACHE  = 'frenchgo-tts-v1';   // TTS audio — cache séparé, survit aux mises à jour app
+const CACHE_NAME = 'frenchgo-v9';
+const TTS_CACHE  = 'frenchgo-tts-v1'; // TTS audio — cache séparé, survit aux mises à jour app
 const ASSETS = [
   '/manifest.json',
   '/icon-192.png',
@@ -95,7 +95,7 @@ self.addEventListener('fetch', e => {
   if (isHTML) {
     // Network-first avec timeout 3s → si réseau lent, sert le cache immédiatement
     e.respondWith((async () => {
-      const cache = await caches.open(CACHE_NAME);
+      const cache  = await caches.open(CACHE_NAME);
       const cached = await caches.match(e.request) || await caches.match('/index.html');
       try {
         const fetchPromise = fetch(e.request).then(res => {
@@ -121,6 +121,7 @@ self.addEventListener('fetch', e => {
     })());
     return;
   }
+
   e.respondWith(
     caches.match(e.request).then(cached => {
       if (cached) return cached;
