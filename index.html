@@ -2344,7 +2344,7 @@ window._splashFailsafe = setTimeout(function() {
 /* ══════════════════════════════════════
    FREEMIUM CONFIG  ← modifiez ici !
 ══════════════════════════════════════ */
-const FREE_LESSONS  = [75, 76, 77, 78, 79, 80, 0, 1, 2, 3, 4, 5, 6, 11, 12, 35, 65, 68]; // IDs des leçons gratuites
+const FREE_LESSONS  = [75, 76, 77, 78, 79, 80, 0, 1, 2, 3, 4, 5, 6, 11, 12, 35, 65, 68, 81]; // IDs des leçons gratuites
 const UNLOCK_CODE_HASH = '9b603d420459bde57879ed37f77899dd9ebfe468709a5153a5558bde5bf3e8cf'; // SHA-256 du code
 const GUMROAD_URL   = 'https://aceemusic6.gumroad.com/l/klcdld'; // purchase page — web only, not shown in TWA app
 
@@ -7697,6 +7697,10 @@ const TITLES_ZH = {
   78:{title:'法语俚语与口语',desc:'年轻法国人日常使用的表达'},
   79:{title:'高级关系代词',desc:'dont、lequel、auquel、duquel的用法'},
   80:{title:'现在虚拟式',desc:'表达愿望、怀疑与情感'},
+  81:{title:'书面表达 —— 任务一：写短信息',desc:'结构、常用表达和范文（60–120 词）。'},
+  82:{title:'书面表达 —— 任务二：文章',desc:'面向读者叙述并评论（120–150 词）。'},
+  83:{title:'书面表达 —— 任务三：论证',desc:'先中立概括，再论证观点（120–180 词）。'},
+  84:{title:'口语表达 —— 三个任务',desc:'面谈、互动与观点表达：12 分钟逐项拆解。'},
 };
 const CONTENT_ZH = {
   75:`<h2>🔤 发音基础</h2>
@@ -9587,6 +9591,213 @@ const CONTENT_ZH = {
 <tr><td>aller</td><td>que j'aille</td></tr>
 <tr><td>faire</td><td>que je fasse</td></tr>
 </table>`,
+  81:`<h2>✉️ 书面表达 —— 任务一：写短信息</h2>
+<p>任务一是三个任务中最短、最容易拿分的。你要写一封给熟人的信息：邮件、便条或几句话。<strong>60 到 120 词</strong>，在总共 60 分钟的考试中大约占 <strong>15 分钟</strong>。</p>
+
+<h3>1. 考官在看什么</h3>
+<table class="vocab-table">
+<tr><th>评分标准</th><th>具体含义</th></tr>
+<tr><td>是否完成指令</td><td>题目要求的每一点都要回答，一点都不能漏</td></tr>
+<tr><td>对象是否正确</td><td>写给对的人，用对的语体（正式／非正式）</td></tr>
+<tr><td>连贯性</td><td>句子之间衔接自然，一遍就能读懂</td></tr>
+<tr><td>语言准确度</td><td>语法、性数配合、动词变位、拼写</td></tr>
+</table>
+<div class="tip-box"><strong>💡 救命习惯：</strong>动笔前，把题目里的每一个要求划出来。如果题目要求你「邀请」「解释原因」「提出一个日期」，那就是三点。漏掉一点，扣的分比语法错误更多。</div>
+
+<h3>2. 四段式结构</h3>
+<table class="vocab-table">
+<tr><th>部分</th><th>内容</th><th>长度</th></tr>
+<tr><td>称呼</td><td>Bonjour + 名字，或 Cher / Chère</td><td>1 行</td></tr>
+<tr><td>写信目的</td><td>说明为什么写这封信</td><td>1–2 句</td></tr>
+<tr><td>正文</td><td>题目要求的各个要点</td><td>3–5 句</td></tr>
+<tr><td>结尾</td><td>结束语 + 署名</td><td>1–2 行</td></tr>
+</table>
+
+<h3>3. 必须背下来的表达</h3>
+<table class="vocab-table">
+<tr><th>功能</th><th>法语表达</th></tr>
+<tr><td>开头（非正式）</td><td>Salut Marc, j'espère que tu vas bien.</td></tr>
+<tr><td>开头（正式）</td><td>Bonjour Madame Dubois, j'espère que vous allez bien.</td></tr>
+<tr><td>说明目的</td><td>Je t'écris pour… / Je vous écris au sujet de…</td></tr>
+<tr><td>邀请</td><td>Ça te dirait de… ? / Je serais ravi(e) de vous compter parmi nous.</td></tr>
+<tr><td>提议</td><td>Que dirais-tu de… ? / Je te propose de…</td></tr>
+<tr><td>道歉</td><td>Je suis vraiment désolé(e) de… / Je te prie de m'excuser pour…</td></tr>
+<tr><td>请求回复</td><td>Dis-moi ce que tu en penses. / Merci de me tenir informé(e).</td></tr>
+<tr><td>结尾（非正式）</td><td>À bientôt ! / Bises,</td></tr>
+<tr><td>结尾（正式）</td><td>Cordialement, / Bien à vous,</td></tr>
+</table>
+
+<h3>4. 范文（98 词）</h3>
+<p><em>题目：你无法参加朋友 Karim 的生日聚会。写信道歉、解释原因，并提议改天见面。</em></p>
+<div class="tip-box">Salut Karim,<br><br>
+Je suis vraiment désolé, mais je ne pourrai pas venir à ton anniversaire samedi. Mon frère arrive de Montréal ce week-end et je dois aller le chercher à l'aéroport en fin d'après-midi. Je m'en veux beaucoup, parce que j'attendais cette soirée depuis des semaines.<br><br>
+Est-ce qu'on pourrait se voir le week-end suivant ? Je t'invite au restaurant, c'est moi qui offre. Dis-moi quel jour t'arrange.<br><br>
+Encore désolé, et passe une excellente soirée !<br><br>
+À très vite,<br>Thomas</div>
+<p>注意：题目的三个要点都写到了，按顺序，各占一段。</p>
+
+<h3>5. 代价最大的错误</h3>
+<table class="vocab-table">
+<tr><th>错误</th><th>后果</th></tr>
+<tr><td>漏掉题目的某个要点</td><td>最严重：任务被视为未完成</td></tr>
+<tr><td>少于 60 词</td><td>自动扣分</td></tr>
+<tr><td>tu 和 vous 混用</td><td>视为不一致，扣分</td></tr>
+<tr><td>把题目抄进正文</td><td>这些词不计入字数，还浪费时间</td></tr>
+<tr><td>写到 200 词</td><td>扣分，而且错误必然变多</td></tr>
+</table>
+<div class="tip-box"><strong>💡 时间分配：</strong>2 分钟读题划重点，10 分钟写，3 分钟检查。检查时只找三样东西：主谓一致、阴性和复数配合、过去时态。</div>`,
+  82:`<h2>📝 书面表达 —— 任务二：文章或经历叙述</h2>
+<p>这次你面对的不再是朋友，而是读者群：博客、社团刊物或论坛的读者。你要讲一段经历，并给出自己的看法。<strong>120 到 150 词</strong>，约 <strong>20 分钟</strong>。</p>
+
+<h3>1. 与任务一的区别</h3>
+<table class="vocab-table">
+<tr><th></th><th>任务一</th><th>任务二</th></tr>
+<tr><td>对象</td><td>认识的人</td><td>广泛的读者</td></tr>
+<tr><td>语体</td><td>通常非正式</td><td>中性，绝不用俚语</td></tr>
+<tr><td>目的</td><td>告知、邀请、道歉</td><td>叙述并评论</td></tr>
+<tr><td>长度</td><td>60–120 词</td><td>120–150 词</td></tr>
+</table>
+<div class="tip-box"><strong>💡 常见陷阱：</strong>在博客文章里写 « Salut les amis ! »。这里要求中性语体：« Bonjour à tous » 或直接进入主题。</div>
+
+<h3>2. 三段式结构</h3>
+<table class="vocab-table">
+<tr><th>部分</th><th>作用</th><th>词数</th></tr>
+<tr><td>标题 + 开头</td><td>点明主题，吸引读者读下去</td><td>15–25</td></tr>
+<tr><td>叙述</td><td>发生了什么：何地、何时、和谁、做了什么</td><td>60–80</td></tr>
+<tr><td>评论</td><td>你的感受和收获</td><td>40–50</td></tr>
+</table>
+
+<h3>3. 过去时态 —— 真正的考点</h3>
+<p>这是最看重复合过去时与未完成过去时搭配的一个任务。</p>
+<table class="vocab-table">
+<tr><th>时态</th><th>用法</th><th>例子</th></tr>
+<tr><td>复合过去时</td><td>推动情节的动作</td><td>Je suis arrivé, j'ai visité, nous avons décidé</td></tr>
+<tr><td>未完成过去时</td><td>背景、习惯、状态</td><td>Il faisait beau, les gens souriaient, j'étais fatigué</td></tr>
+<tr><td>愈过去时</td><td>比叙述更早发生的事</td><td>Je n'avais jamais vu une telle foule</td></tr>
+</table>
+
+<h3>4. 必备连接词</h3>
+<table class="vocab-table">
+<tr><th>功能</th><th>连接词</th></tr>
+<tr><td>排序</td><td>D'abord, ensuite, puis, enfin</td></tr>
+<tr><td>补充</td><td>De plus, par ailleurs, en outre</td></tr>
+<tr><td>转折</td><td>Cependant, en revanche, pourtant</td></tr>
+<tr><td>解释</td><td>En effet, car, c'est pourquoi</td></tr>
+<tr><td>总结</td><td>En somme, pour conclure, au final</td></tr>
+</table>
+
+<h3>5. 范文（141 词）</h3>
+<p><em>题目：在社团博客上讲述一次最近的外出活动，并给出你的看法。</em></p>
+<div class="tip-box"><strong>Une journée au marché de Jean-Talon</strong><br><br>
+Samedi dernier, notre association a organisé une visite du marché Jean-Talon, à Montréal. Nous étions une quinzaine et il faisait un temps magnifique.<br><br>
+D'abord, un producteur nous a expliqué comment il cultivait ses légumes sans pesticides. Ensuite, nous avons goûté des fromages québécois que je ne connaissais pas du tout. Enfin, nous avons partagé un repas préparé avec ce que chacun avait acheté.<br><br>
+Ce qui m'a le plus marqué, c'est la générosité des commerçants : ils prenaient le temps de répondre, même quand le marché était plein. En revanche, les prix restent élevés pour un budget étudiant.<br><br>
+En somme, une excellente journée. Je recommande vivement cette sortie à ceux qui veulent découvrir la ville autrement.</div>
+
+<h3>6. 有针对性的检查</h3>
+<div class="tip-box"><strong>💡 用 4 分钟，按这个顺序检查：</strong>1) 用 <em>être</em> 的过去分词配合对了吗？2) 每个 « que » 后面用对语式了吗？3) 形容词和名词配合了吗？4) 至少用了四个不同的连接词吗？</div>`,
+  83:`<h2>⚖️ 书面表达 —— 任务三：对比与论证</h2>
+<p>这是拉开考生差距的一道题。题目会给你两篇短文，就某个社会话题持不同立场。你要先客观概括两方观点，再表达自己的看法。<strong>120 到 180 词</strong>，约 <strong>25 分钟</strong>。</p>
+
+<h3>1. 两个部分，两个字数</h3>
+<table class="vocab-table">
+<tr><th>部分</th><th>内容</th><th>词数</th></tr>
+<tr><td>第一部分 —— 概括</td><td>客观呈现两种观点</td><td>40 到 60</td></tr>
+<tr><td>第二部分 —— 你的观点</td><td>你的立场，配论据和例子</td><td>80 到 120</td></tr>
+</table>
+<div class="tip-box"><strong>💡 头号错误：</strong>在第一部分就发表意见。概括的时候你是"隐形"的：不能出现 « je pense »，不能用带评价色彩的形容词。你的声音只在第二部分出现。</div>
+
+<h3>2. 第一部分：让自己"隐形"的表达</h3>
+<table class="vocab-table">
+<tr><th>功能</th><th>法语表达</th></tr>
+<tr><td>引入话题</td><td>Les deux documents abordent la question de…</td></tr>
+<tr><td>介绍第一篇</td><td>Le premier document défend l'idée que… / soutient que…</td></tr>
+<tr><td>介绍第二篇</td><td>Le second, au contraire, estime que… / met en avant…</td></tr>
+<tr><td>标示对立</td><td>Alors que… / tandis que… / à l'inverse…</td></tr>
+</table>
+
+<h3>3. 第二部分：论证结构</h3>
+<table class="vocab-table">
+<tr><th>步骤</th><th>作用</th><th>起始句</th></tr>
+<tr><td>立场</td><td>明确表明你站哪一边</td><td>Pour ma part, je partage l'avis du second document.</td></tr>
+<tr><td>论据一</td><td>主要理由</td><td>Tout d'abord, il me semble que…</td></tr>
+<tr><td>例子</td><td>具体事实，亲身或所见</td><td>Par exemple, dans ma ville…</td></tr>
+<tr><td>论据二</td><td>补充理由</td><td>De plus, on ne peut ignorer que…</td></tr>
+<tr><td>让步</td><td>承认对方部分合理，再转回</td><td>Certes… mais / Il est vrai que… néanmoins</td></tr>
+<tr><td>结论</td><td>一句话，不重复</td><td>C'est pourquoi je reste convaincu que…</td></tr>
+</table>
+<div class="tip-box"><strong>💡 让步是提分的关键。</strong>B2 水平的考生会先承认对方观点有一定道理，再加以超越。« Certes, cela coûte cher, mais le coût de l'inaction serait bien supérieur. »</div>
+
+<h3>4. 范文（166 词）</h3>
+<p><em>题目：公共交通是否应该免费？</em></p>
+<div class="tip-box"><strong>Partie 1</strong><br>
+Les deux documents s'interrogent sur la gratuité des transports en commun. Le premier la défend au nom de l'écologie et de la justice sociale, estimant qu'elle réduirait la circulation automobile. Le second, à l'inverse, met en avant son coût pour les finances publiques et le risque d'une dégradation du service.<br><br>
+<strong>Partie 2</strong><br>
+Pour ma part, je partage plutôt la position du second document. Tout d'abord, un réseau gratuit mais saturé et mal entretenu ne convaincra personne d'abandonner sa voiture : c'est la qualité, non le prix, qui décide. Par exemple, dans ma ville, la fréquentation a augmenté quand les bus sont passés à toutes les dix minutes, pas quand les tarifs ont baissé. De plus, l'argent des billets finance directement l'entretien du matériel.<br><br>
+Certes, la gratuité aiderait réellement les ménages les plus modestes. Mais un tarif social ciblé atteindrait le même objectif sans priver le réseau de ses ressources. C'est pourquoi je préfère un service payant, fiable et accessible.</div>
+
+<h3>5. 25 分钟怎么分配</h3>
+<table class="vocab-table">
+<tr><th>时间</th><th>做什么</th></tr>
+<tr><td>4 分钟</td><td>读两篇材料，各用 5 个词记下主旨</td></tr>
+<tr><td>3 分钟</td><td>选定立场，列出两个论据 + 一个例子</td></tr>
+<tr><td>14 分钟</td><td>写两个部分</td></tr>
+<tr><td>4 分钟</td><td>检查：性数配合、« que » 后的语式、数字数</td></tr>
+</table>`,
+  84:`<h2>🎤 口语表达 —— 三个任务详解</h2>
+<p>考试时长 <strong>12 分钟</strong>，与考官面对面。三个任务，考查三种完全不同的能力。很多考生失分，仅仅是因为不清楚每个环节要求什么。</p>
+
+<h3>1. 总览</h3>
+<table class="vocab-table">
+<tr><th>任务</th><th>时长</th><th>准备时间</th><th>考查内容</th></tr>
+<tr><td>一 —— 引导式面谈</td><td>2 分钟</td><td>无</td><td>与陌生人交流</td></tr>
+<tr><td>二 —— 互动练习</td><td>5 分 30 秒</td><td>2 分钟</td><td>获取信息</td></tr>
+<tr><td>三 —— 表达观点</td><td>4 分 30 秒</td><td>无</td><td>连贯、有说服力地表达</td></tr>
+</table>
+
+<h3>2. 任务一 —— 引导式面谈</h3>
+<p>考官会问你一些关于自己的简单问题：工作、学业、居住的城市、爱好。没有准备时间，这是有意为之：考查的就是你的临场反应。</p>
+<table class="vocab-table">
+<tr><th>要做</th><th>要避免</th></tr>
+<tr><td>每个回答展开成 2–3 句</td><td>只回答 « Oui » 或 « J'aime bien »</td></tr>
+<tr><td>给出一个具体细节</td><td>背诵事先准备好的自我介绍</td></tr>
+<tr><td>反问：« Et vous, vous connaissez ? »</td><td>被动等待下一个问题</td></tr>
+</table>
+<div class="tip-box"><strong>💡 三句话原则：</strong>被问到 « Que faites-vous dans la vie ? » 时，不要只答 « Je suis infirmier »。要说：« Je suis infirmier dans un hôpital public depuis quatre ans. Je travaille surtout de nuit, aux urgences. C'est fatigant, mais je ne me vois pas faire autre chose. »</div>
+
+<h3>3. 任务二 —— 互动练习</h3>
+<p>题目给你一个情景：报名课程、租房子、安排旅行。你有 2 分钟准备，然后必须<strong>向考官提问</strong>，获取你缺少的信息。</p>
+<table class="vocab-table">
+<tr><th>提问类型</th><th>法语表达</th></tr>
+<tr><td>开放式</td><td>Pourriez-vous me dire comment… ?</td></tr>
+<tr><td>关于价格</td><td>Quel est le tarif ? Y a-t-il des frais supplémentaires ?</td></tr>
+<tr><td>关于条件</td><td>Quelles sont les démarches à suivre ?</td></tr>
+<tr><td>确认理解</td><td>Si je comprends bien, il faut… ?</td></tr>
+<tr><td>继续追问</td><td>D'accord. Et en ce qui concerne… ?</td></tr>
+</table>
+<div class="tip-box"><strong>💡 在 2 分钟准备时间里，写下五个问题。</strong>这是整场考试中唯一允许你记录的时刻。提出五个具体问题的考生，分数远高于只问两个然后沉默的考生。</div>
+
+<h3>4. 任务三 —— 表达观点</h3>
+<p>题目给你一个社会话题，你要独自讲约 4 分 30 秒，没有准备时间。这是最令人害怕的任务，但也是最容易通过训练提高的，因为结构永远相同。</p>
+<table class="vocab-table">
+<tr><th>步骤</th><th>时间</th><th>起始句</th></tr>
+<tr><td>复述题目</td><td>20 秒</td><td>Le sujet nous invite à réfléchir à…</td></tr>
+<tr><td>表明立场</td><td>15 秒</td><td>Selon moi, … et je vais expliquer pourquoi.</td></tr>
+<tr><td>论据一 + 例子</td><td>1 分 15 秒</td><td>Premièrement, … Je pense notamment à…</td></tr>
+<tr><td>论据二 + 例子</td><td>1 分 15 秒</td><td>Deuxièmement, … Prenons le cas de…</td></tr>
+<tr><td>让步</td><td>45 秒</td><td>Bien sûr, on pourrait objecter que… Cependant…</td></tr>
+<tr><td>结论</td><td>30 秒</td><td>En définitive, je dirais que…</td></tr>
+</table>
+
+<h3>5. 真正能加分的做法</h3>
+<table class="vocab-table">
+<tr><th>做法</th><th>效果</th></tr>
+<tr><td>放慢语速，吐字清晰</td><td>比说得快但错误多印象更好</td></tr>
+<tr><td>从容地自我纠正</td><td>« Pardon, je voulais dire… » 是加分项，不扣分</td></tr>
+<tr><td>口头使用连接词</td><td>结构听得出来：d'une part, en revanche, en définitive</td></tr>
+<tr><td>把时间用满</td><td>4 分 30 秒只说 2 分钟，分数会被压低</td></tr>
+</table>
+<div class="tip-box"><strong>💡 沉默是你唯一真正的敌人。</strong>想不起某个词时，绕过去，不要卡住：« je ne trouve pas le mot exact, mais c'est l'endroit où l'on va pour… »。这种换一种说法的能力本身就是考查项，不是示弱。</div>`,
 };
 const QUIZ_ZH = {
   75:['「ch」在法语中怎么发音？','「eau」这个组合发什么音？','「哑H」在法语中是什么意思？','「ou」在法语中怎么发音？','「an/en」对应哪个鼻化元音？','法语字母「u」怎么发音？','「c」在「e」或「i」前怎么发音？','什么是法语中的「联诵（liaison）」？'],
@@ -9696,6 +9907,10 @@ const QUIZ_ZH = {
   78:['哪个Verlan词表示"不可思议"？','"Chelou"是哪个词的Verlan？','"Kiffer"是什么意思？','"Je suis crevé"意思是？','哪个俚语词表示汽车？'],
   79:['补全："C\'est le livre ___ je t\'ai parlé"','补全："La raison ___ j\'ai refusé"','补全："Le projet ___ je participe"','"Où"可用来替代哪类补语？','"à + lesquels"的缩合形式是什么？'],
   80:['虚拟式中être的变位（il）是什么？','哪个结构需要使用虚拟式？','补全："Bien qu\'il ___ froid..."','虚拟式中avoir的变位（il）是什么？','哪句话虚拟式使用不当？'],
+  81:[{q:'TCF Canada 书面表达任务一应该写多少词？',opts:['30 到 60 词','60 到 120 词','120 到 150 词','150 到 200 词']},{q:'任务一中哪种错误代价最大？',opts:['一个拼写错误','漏掉题目的一个要点','一句话稍微长了点','用了一个口语词']},{q:'你在写信给一位好朋友，哪个结尾合适？',opts:['Veuillez agréer mes salutations distinguées','À bientôt !','Dans l\'attente de votre réponse','Je vous prie de croire en mon respect']},{q:'在 60 分钟里，任务一应该花多长时间？',opts:['大约 5 分钟','大约 15 分钟','大约 30 分钟','大约 40 分钟']},{q:'补全：« Je vous écris ___ sujet de votre annonce. »',opts:['au','du','en','pour']}],
+  82:[{q:'任务二要求写多少词？',opts:['60 到 120 词','120 到 150 词','150 到 250 词','80 到 100 词']},{q:'在过去时叙述中，描写背景用哪个时态？',opts:['复合过去时','未完成过去时','简单将来时','条件式']},{q:'哪个连接词表示转折？',opts:['De plus','En effet','En revanche','D\'abord']},{q:'社团博客文章适合什么语体？',opts:['随意，像朋友之间','中性，不用俚语','非常文雅、文学化','公文式']},{q:'补全：« Je n\'___ jamais vu une telle foule. »',opts:['ai','avais','aurai','aurais']}],
+  83:[{q:'任务三的第一部分要做什么？',opts:['表达你的观点','客观概括两种观点，不表态','批评较弱的那篇材料','抄写两篇材料']},{q:'第一部分要写多少词？',opts:['20 到 30 词','40 到 60 词','80 到 120 词','120 到 180 词']},{q:'哪个表达用于让步？',opts:['Par exemple','Certes… mais','Tout d\'abord','En effet']},{q:'任务三应该花多长时间？',opts:['约 10 分钟','约 15 分钟','约 25 分钟','约 40 分钟']},{q:'补全：« Pour ma part, je ___ l\'avis du second document. »',opts:['partage','partager','partagé','partagerais']}],
+  84:[{q:'TCF Canada 口语考试总共多长时间？',opts:['6 分钟','12 分钟','20 分钟','30 分钟']},{q:'哪个任务有 2 分钟准备时间？',opts:['任务一','任务二','任务三','三个都有']},{q:'在任务二中，你的主要任务是……',opts:['回答考官的问题','提问以获取信息','讲述你的生活','朗读一段文字']},{q:'考试中想不起某个词该怎么办？',opts:['保持沉默直到想起来','用母语说出来','换一种说法绕过去','彻底换个话题']},{q:'补全：« En ___, je dirais que le télétravail présente plus d\'avantages. »',opts:['définitive','définitif','définition','définir']}],
 };
 
 const CONTENT_EN = {
@@ -9942,6 +10157,213 @@ const CONTENT_EN = {
 </table>
 <div class="tip-box"><strong>💡 Tip:</strong> In everyday speech, use passé composé, imperfect and conditional. The passé simple is reserved for literary writing.</div>`,
 
+  81: `<h2>✉️ Written expression — Task 1: the message</h2>
+<p>Task 1 is the shortest and most approachable of the three. You write a message to someone you know: an email, a note, a few lines. <strong>60 to 120 words</strong>, roughly <strong>15 minutes</strong> out of the 60 you get for the whole paper.</p>
+
+<h3>1. What the examiner is looking for</h3>
+<table class="vocab-table">
+<tr><th>Criterion</th><th>What it actually means</th></tr>
+<tr><td>Following the instructions</td><td>You answer EVERY point asked, without missing one</td></tr>
+<tr><td>Addressing the right person</td><td>Right reader, right level of formality</td></tr>
+<tr><td>Coherence</td><td>Sentences flow; it is clear on first reading</td></tr>
+<tr><td>Language accuracy</td><td>Grammar, agreement, verb forms, spelling</td></tr>
+</table>
+<div class="tip-box"><strong>💡 The habit that saves you:</strong> before writing, underline every element of the prompt. If you are asked to invite, to explain and to suggest a date, that is three points. Missing one costs more than a grammar mistake.</div>
+
+<h3>2. The four-block structure</h3>
+<table class="vocab-table">
+<tr><th>Block</th><th>Content</th><th>Length</th></tr>
+<tr><td>Greeting</td><td>Bonjour + first name, or Cher / Chère</td><td>1 line</td></tr>
+<tr><td>Reason for writing</td><td>Why you are writing</td><td>1–2 sentences</td></tr>
+<tr><td>Body</td><td>The points the prompt asked for</td><td>3–5 sentences</td></tr>
+<tr><td>Closing</td><td>Sign-off + first name</td><td>1–2 lines</td></tr>
+</table>
+
+<h3>3. Phrases worth memorising</h3>
+<table class="vocab-table">
+<tr><th>Function</th><th>French</th></tr>
+<tr><td>Open (informal)</td><td>Salut Marc, j'espère que tu vas bien.</td></tr>
+<tr><td>Open (formal)</td><td>Bonjour Madame Dubois, j'espère que vous allez bien.</td></tr>
+<tr><td>State your reason</td><td>Je t'écris pour… / Je vous écris au sujet de…</td></tr>
+<tr><td>Invite</td><td>Ça te dirait de… ? / Je serais ravi(e) de vous compter parmi nous.</td></tr>
+<tr><td>Suggest</td><td>Que dirais-tu de… ? / Je te propose de…</td></tr>
+<tr><td>Apologise</td><td>Je suis vraiment désolé(e) de… / Je te prie de m'excuser pour…</td></tr>
+<tr><td>Ask for a reply</td><td>Dis-moi ce que tu en penses. / Merci de me tenir informé(e).</td></tr>
+<tr><td>Close (informal)</td><td>À bientôt ! / Bises,</td></tr>
+<tr><td>Close (formal)</td><td>Cordialement, / Bien à vous,</td></tr>
+</table>
+
+<h3>4. Worked example (98 words)</h3>
+<p><em>Prompt: you cannot attend your friend Karim's birthday. Write to apologise, explain why, and suggest meeting another day.</em></p>
+<div class="tip-box">Salut Karim,<br><br>
+Je suis vraiment désolé, mais je ne pourrai pas venir à ton anniversaire samedi. Mon frère arrive de Montréal ce week-end et je dois aller le chercher à l'aéroport en fin d'après-midi. Je m'en veux beaucoup, parce que j'attendais cette soirée depuis des semaines.<br><br>
+Est-ce qu'on pourrait se voir le week-end suivant ? Je t'invite au restaurant, c'est moi qui offre. Dis-moi quel jour t'arrange.<br><br>
+Encore désolé, et passe une excellente soirée !<br><br>
+À très vite,<br>Thomas</div>
+<p>Notice: all three points are dealt with, in order, each in its own paragraph.</p>
+
+<h3>5. The mistakes that cost the most</h3>
+<table class="vocab-table">
+<tr><th>Mistake</th><th>Consequence</th></tr>
+<tr><td>Missing a point of the prompt</td><td>The worst one: the task counts as incomplete</td></tr>
+<tr><td>Writing fewer than 60 words</td><td>Automatic penalty</td></tr>
+<tr><td>Mixing tu and vous</td><td>Penalised as an inconsistency</td></tr>
+<tr><td>Copying the prompt into your text</td><td>Those words do not count and waste your time</td></tr>
+<tr><td>Writing 200 words</td><td>Penalty, and mechanically more mistakes</td></tr>
+</table>
+<div class="tip-box"><strong>💡 Timing:</strong> 2 minutes to read and underline, 10 to write, 3 to check. When checking, look for three things only: subject-verb agreement, feminine and plural agreement, and past tenses.</div>`,
+  82: `<h2>📝 Written expression — Task 2: the article or account</h2>
+<p>Here you are no longer writing to a friend but to an audience: readers of a blog, a community newsletter, a forum. You tell a story and give your opinion. <strong>120 to 150 words</strong>, about <strong>20 minutes</strong>.</p>
+
+<h3>1. How it differs from task 1</h3>
+<table class="vocab-table">
+<tr><th></th><th>Task 1</th><th>Task 2</th></tr>
+<tr><td>Reader</td><td>Someone you know</td><td>A wide audience</td></tr>
+<tr><td>Register</td><td>Often informal</td><td>Neutral, never slangy</td></tr>
+<tr><td>Purpose</td><td>Inform, invite, apologise</td><td>Narrate and comment</td></tr>
+<tr><td>Length</td><td>60–120 words</td><td>120–150 words</td></tr>
+</table>
+<div class="tip-box"><strong>💡 Classic trap:</strong> writing « Salut les amis ! » in a blog article. The expected tone is neutral: « Bonjour à tous » or a direct entry into the subject.</div>
+
+<h3>2. The three-part structure</h3>
+<table class="vocab-table">
+<tr><th>Part</th><th>Role</th><th>Words</th></tr>
+<tr><td>Title + hook</td><td>Set the topic, make the reader want to continue</td><td>15–25</td></tr>
+<tr><td>The account</td><td>What happened: where, when, with whom, what</td><td>60–80</td></tr>
+<tr><td>The comment</td><td>What you thought, what you take away</td><td>40–50</td></tr>
+</table>
+
+<h3>3. Past tenses — the real test</h3>
+<p>This is the task where the passé composé / imparfait balance is watched most closely.</p>
+<table class="vocab-table">
+<tr><th>Tense</th><th>Use</th><th>Example</th></tr>
+<tr><td>Passé composé</td><td>Actions that move the story forward</td><td>Je suis arrivé, j'ai visité, nous avons décidé</td></tr>
+<tr><td>Imparfait</td><td>Background, habits, states</td><td>Il faisait beau, les gens souriaient, j'étais fatigué</td></tr>
+<tr><td>Plus-que-parfait</td><td>Something earlier than the story</td><td>Je n'avais jamais vu une telle foule</td></tr>
+</table>
+
+<h3>4. Essential connectors</h3>
+<table class="vocab-table">
+<tr><th>Function</th><th>Connectors</th></tr>
+<tr><td>Sequence</td><td>D'abord, ensuite, puis, enfin</td></tr>
+<tr><td>Add</td><td>De plus, par ailleurs, en outre</td></tr>
+<tr><td>Contrast</td><td>Cependant, en revanche, pourtant</td></tr>
+<tr><td>Explain</td><td>En effet, car, c'est pourquoi</td></tr>
+<tr><td>Conclude</td><td>En somme, pour conclure, au final</td></tr>
+</table>
+
+<h3>5. Worked example (141 words)</h3>
+<p><em>Prompt: on your association's blog, describe a recent outing and give your opinion.</em></p>
+<div class="tip-box"><strong>Une journée au marché de Jean-Talon</strong><br><br>
+Samedi dernier, notre association a organisé une visite du marché Jean-Talon, à Montréal. Nous étions une quinzaine et il faisait un temps magnifique.<br><br>
+D'abord, un producteur nous a expliqué comment il cultivait ses légumes sans pesticides. Ensuite, nous avons goûté des fromages québécois que je ne connaissais pas du tout. Enfin, nous avons partagé un repas préparé avec ce que chacun avait acheté.<br><br>
+Ce qui m'a le plus marqué, c'est la générosité des commerçants : ils prenaient le temps de répondre, même quand le marché était plein. En revanche, les prix restent élevés pour un budget étudiant.<br><br>
+En somme, une excellente journée. Je recommande vivement cette sortie à ceux qui veulent découvrir la ville autrement.</div>
+
+<h3>6. Targeted proofreading</h3>
+<div class="tip-box"><strong>💡 In 4 minutes, check in this order:</strong> 1) do past participles with <em>être</em> agree? 2) is every « que » followed by the right mood? 3) do adjectives agree with their nouns? 4) have you used at least four different connectors?</div>`,
+  83: `<h2>⚖️ Written expression — Task 3: compare and argue</h2>
+<p>This is the task that separates candidates. You are given two short documents defending different positions on a social issue. You must first summarise them without taking sides, then give your own view. <strong>120 to 180 words</strong>, about <strong>25 minutes</strong>.</p>
+
+<h3>1. Two parts, two lengths</h3>
+<table class="vocab-table">
+<tr><th>Part</th><th>Content</th><th>Words</th></tr>
+<tr><td>Part 1 — the summary</td><td>Both viewpoints, presented objectively</td><td>40 to 60</td></tr>
+<tr><td>Part 2 — your opinion</td><td>Your position, backed by arguments and examples</td><td>80 to 120</td></tr>
+</table>
+<div class="tip-box"><strong>💡 Mistake number one:</strong> giving your opinion in part 1. While you are summarising, you are invisible: no « je pense », no judgement adjectives. Your voice appears only in part 2.</div>
+
+<h3>2. Part 1: phrasing that removes your voice</h3>
+<table class="vocab-table">
+<tr><th>Function</th><th>French phrasing</th></tr>
+<tr><td>Introduce the topic</td><td>Les deux documents abordent la question de…</td></tr>
+<tr><td>Present the first</td><td>Le premier document défend l'idée que… / soutient que…</td></tr>
+<tr><td>Present the second</td><td>Le second, au contraire, estime que… / met en avant…</td></tr>
+<tr><td>Mark the contrast</td><td>Alors que… / tandis que… / à l'inverse…</td></tr>
+</table>
+
+<h3>3. Part 2: the argument structure</h3>
+<table class="vocab-table">
+<tr><th>Step</th><th>Role</th><th>Opening phrase</th></tr>
+<tr><td>Position</td><td>State your side clearly</td><td>Pour ma part, je partage l'avis du second document.</td></tr>
+<tr><td>Argument 1</td><td>Your main reason</td><td>Tout d'abord, il me semble que…</td></tr>
+<tr><td>Example</td><td>A concrete fact, lived or observed</td><td>Par exemple, dans ma ville…</td></tr>
+<tr><td>Argument 2</td><td>A further reason</td><td>De plus, on ne peut ignorer que…</td></tr>
+<tr><td>Concession</td><td>Acknowledge the other side, then return</td><td>Certes… mais / Il est vrai que… néanmoins</td></tr>
+<tr><td>Conclusion</td><td>One sentence, no repetition</td><td>C'est pourquoi je reste convaincu que…</td></tr>
+</table>
+<div class="tip-box"><strong>💡 The concession is what raises your score.</strong> A B2 candidate acknowledges that the opposing view is partly valid before moving beyond it. « Certes, cela coûte cher, mais le coût de l'inaction serait bien supérieur. »</div>
+
+<h3>4. Worked example (166 words)</h3>
+<p><em>Topic: should public transport be free?</em></p>
+<div class="tip-box"><strong>Partie 1</strong><br>
+Les deux documents s'interrogent sur la gratuité des transports en commun. Le premier la défend au nom de l'écologie et de la justice sociale, estimant qu'elle réduirait la circulation automobile. Le second, à l'inverse, met en avant son coût pour les finances publiques et le risque d'une dégradation du service.<br><br>
+<strong>Partie 2</strong><br>
+Pour ma part, je partage plutôt la position du second document. Tout d'abord, un réseau gratuit mais saturé et mal entretenu ne convaincra personne d'abandonner sa voiture : c'est la qualité, non le prix, qui décide. Par exemple, dans ma ville, la fréquentation a augmenté quand les bus sont passés à toutes les dix minutes, pas quand les tarifs ont baissé. De plus, l'argent des billets finance directement l'entretien du matériel.<br><br>
+Certes, la gratuité aiderait réellement les ménages les plus modestes. Mais un tarif social ciblé atteindrait le même objectif sans priver le réseau de ses ressources. C'est pourquoi je préfère un service payant, fiable et accessible.</div>
+
+<h3>5. Managing the 25 minutes</h3>
+<table class="vocab-table">
+<tr><th>Time</th><th>What you do</th></tr>
+<tr><td>4 min</td><td>Read both documents, note each main idea in 5 words</td></tr>
+<tr><td>3 min</td><td>Pick your side, list two arguments + one example</td></tr>
+<tr><td>14 min</td><td>Write both parts</td></tr>
+<tr><td>4 min</td><td>Proofread: agreement, mood after « que », count the words</td></tr>
+</table>`,
+  84: `<h2>🎤 Speaking — the three tasks in detail</h2>
+<p>The test lasts <strong>12 minutes</strong> face to face with an examiner. Three tasks, three very different skills. Many candidates lose marks simply because they do not know what is expected at each stage.</p>
+
+<h3>1. Overview</h3>
+<table class="vocab-table">
+<tr><th>Task</th><th>Duration</th><th>Preparation</th><th>What is assessed</th></tr>
+<tr><td>1 — Guided interview</td><td>2 min</td><td>None</td><td>Interacting with a stranger</td></tr>
+<tr><td>2 — Interactive exercise</td><td>5 min 30</td><td>2 min</td><td>Obtaining information</td></tr>
+<tr><td>3 — Point of view</td><td>4 min 30</td><td>None</td><td>Speaking continuously and convincingly</td></tr>
+</table>
+
+<h3>2. Task 1 — the guided interview</h3>
+<p>The examiner asks simple questions about you: your job, your studies, your city, your hobbies. There is no preparation, and that is deliberate: spontaneity is being tested.</p>
+<table class="vocab-table">
+<tr><th>Do</th><th>Avoid</th></tr>
+<tr><td>Develop each answer over 2–3 sentences</td><td>Answering « Oui » or « J'aime bien »</td></tr>
+<tr><td>Give one concrete detail</td><td>Reciting a memorised introduction</td></tr>
+<tr><td>Bounce back: « Et vous, vous connaissez ? »</td><td>Passively waiting for the next question</td></tr>
+</table>
+<div class="tip-box"><strong>💡 The three-sentence rule:</strong> to « Que faites-vous dans la vie ? », do not answer « Je suis infirmier ». Say: « Je suis infirmier dans un hôpital public depuis quatre ans. Je travaille surtout de nuit, aux urgences. C'est fatigant, mais je ne me vois pas faire autre chose. »</div>
+
+<h3>3. Task 2 — the interactive exercise</h3>
+<p>You are given a situation: enrolling on a course, renting a flat, organising a trip. You get 2 minutes to prepare, then you must <strong>ask the examiner questions</strong> to obtain the information you are missing.</p>
+<table class="vocab-table">
+<tr><th>Question type</th><th>French phrasing</th></tr>
+<tr><td>Open</td><td>Pourriez-vous me dire comment… ?</td></tr>
+<tr><td>About price</td><td>Quel est le tarif ? Y a-t-il des frais supplémentaires ?</td></tr>
+<tr><td>About conditions</td><td>Quelles sont les démarches à suivre ?</td></tr>
+<tr><td>Check understanding</td><td>Si je comprends bien, il faut… ?</td></tr>
+<tr><td>Move on</td><td>D'accord. Et en ce qui concerne… ?</td></tr>
+</table>
+<div class="tip-box"><strong>💡 During the 2 preparation minutes, write five questions.</strong> It is the only moment in the test when you may write anything. A candidate who asks five precise questions scores far better than one who asks two and falls silent.</div>
+
+<h3>4. Task 3 — expressing a point of view</h3>
+<p>You are given a social topic and speak alone, without preparation, for about 4 minutes 30. It is the most feared task, and also the most trainable, because the plan never changes.</p>
+<table class="vocab-table">
+<tr><th>Step</th><th>Time</th><th>Opening phrase</th></tr>
+<tr><td>Reframe the topic</td><td>20 s</td><td>Le sujet nous invite à réfléchir à…</td></tr>
+<tr><td>State your position</td><td>15 s</td><td>Selon moi, … et je vais expliquer pourquoi.</td></tr>
+<tr><td>Argument 1 + example</td><td>1 min 15</td><td>Premièrement, … Je pense notamment à…</td></tr>
+<tr><td>Argument 2 + example</td><td>1 min 15</td><td>Deuxièmement, … Prenons le cas de…</td></tr>
+<tr><td>Concession</td><td>45 s</td><td>Bien sûr, on pourrait objecter que… Cependant…</td></tr>
+<tr><td>Conclusion</td><td>30 s</td><td>En définitive, je dirais que…</td></tr>
+</table>
+
+<h3>5. What actually gains marks</h3>
+<table class="vocab-table">
+<tr><th>Behaviour</th><th>Effect</th></tr>
+<tr><td>Speaking slowly and clearly</td><td>Better impression than speaking fast with errors</td></tr>
+<tr><td>Correcting yourself calmly</td><td>« Pardon, je voulais dire… » is valued, not penalised</td></tr>
+<tr><td>Using connectors out loud</td><td>Audible structure: d'une part, en revanche, en définitive</td></tr>
+<tr><td>Using all the time given</td><td>Stopping at 2 minutes out of 4:30 caps your score</td></tr>
+</table>
+<div class="tip-box"><strong>💡 Silence is your only real enemy.</strong> If a word escapes you, work around it instead of freezing: « je ne trouve pas le mot exact, mais c'est l'endroit où l'on va pour… ». That ability to rephrase is an assessed skill, not an admission of weakness.</div>`,
 };
 
 
@@ -15245,6 +15667,281 @@ const LESSONS = [
       {q:'Complétez : "Bien qu\'il ___ froid, nous sortons."',opts:['fait','fasse','fera','ferait'],ans:1,exp:'"Bien que" déclenche toujours le subjonctif. Faire → que je fasse, tu fasses, il fasse.',exp_en:'"Bien que" always triggers the subjunctive. Faire → que je fasse, tu fasses, il fasse.'},
       {q:'Conjuguez "avoir" au subjonctif (il) : "Je suis content qu\'il ___ réussi."',opts:['a','avait','ait','aura'],ans:2,exp:'"Avoir" au subjonctif : que j\'aie, tu aies, il AIT, nous ayons…',exp_en:'"Avoir" in subjunctive: que j\'aie, tu aies, il AIT, nous ayons…'},
       {q:'Dans quelle phrase le subjonctif est-il INCORRECT ?',opts:['Il faut que tu viennes.','Je doute qu\'il sache.','Je pense qu\'il soit là.','Bien qu\'elle fasse froid.'],ans:2,exp:'"Je pense que" exprime une certitude → indicatif : "Je pense qu\'il EST là."',exp_en:'"Je pense que" expresses certainty → indicative: "Je pense qu\'il EST là."'},
+    ]
+  },
+  /* ─── 81 ─── */
+  {
+    id:81, level:'tcf',
+    title:'Expression écrite — Tâche 1 : le message', title_en:'Writing — Task 1: the message',
+    desc:'Structure, formules et exemple corrigé (60–120 mots).', desc_en:'Structure, set phrases and a worked example (60–120 words).',
+    tip:'Soulignez chaque point de la consigne avant d\'écrire : en oublier un coûte plus cher qu\'une faute de grammaire.',
+    tip_en:'Underline every point of the prompt before writing: missing one costs more than a grammar mistake.',
+    example:'Je t\'écris pour… • Que dirais-tu de… ? • À bientôt !',
+    example_en:'Je t\'écris pour… • Que dirais-tu de… ? • À bientôt !',
+    content:`<h2>✉️ Expression écrite — Tâche 1 : le message</h2>
+<p>La tâche 1 est la plus courte et la plus accessible des trois. Vous écrivez un message à une ou plusieurs personnes que vous connaissez : un mail, une note, un mot. <strong>60 à 120 mots</strong>, environ <strong>15 minutes</strong> sur les 60 de l'épreuve.</p>
+
+<h3>1. Ce que l'examinateur attend</h3>
+<table class="vocab-table">
+<tr><th>Critère</th><th>Ce que ça veut dire concrètement</th></tr>
+<tr><td>Respect de la consigne</td><td>Vous répondez à TOUS les points demandés, sans en oublier un seul</td></tr>
+<tr><td>Destinataire</td><td>Vous vous adressez à la bonne personne, avec le bon niveau de langue</td></tr>
+<tr><td>Cohérence</td><td>Vos phrases s'enchaînent, on comprend du premier coup</td></tr>
+<tr><td>Correction de la langue</td><td>Grammaire, accords, conjugaison, orthographe</td></tr>
+</table>
+<div class="tip-box"><strong>💡 Le réflexe qui sauve :</strong> avant d'écrire, soulignez chaque élément de la consigne. Si on vous demande d'inviter, d'expliquer et de proposer une date, ce sont trois points. Oublier un seul point coûte plus cher qu'une faute de grammaire.</div>
+
+<h3>2. La structure en quatre blocs</h3>
+<table class="vocab-table">
+<tr><th>Bloc</th><th>Contenu</th><th>Longueur</th></tr>
+<tr><td>Salutation</td><td>Bonjour + prénom, ou Cher / Chère</td><td>1 ligne</td></tr>
+<tr><td>Raison du message</td><td>Pourquoi vous écrivez</td><td>1 à 2 phrases</td></tr>
+<tr><td>Développement</td><td>Les points demandés par la consigne</td><td>3 à 5 phrases</td></tr>
+<tr><td>Clôture</td><td>Formule finale + prénom</td><td>1 à 2 lignes</td></tr>
+</table>
+
+<h3>3. Formules à connaître par cœur</h3>
+<table class="vocab-table">
+<tr><th>Fonction</th><th>Formule</th></tr>
+<tr><td>Ouvrir (informel)</td><td>Salut Marc, j'espère que tu vas bien.</td></tr>
+<tr><td>Ouvrir (formel)</td><td>Bonjour Madame Dubois, j'espère que vous allez bien.</td></tr>
+<tr><td>Annoncer la raison</td><td>Je t'écris pour… / Je vous écris au sujet de…</td></tr>
+<tr><td>Inviter</td><td>Ça te dirait de… ? / Je serais ravi(e) de vous compter parmi nous.</td></tr>
+<tr><td>Proposer</td><td>Que dirais-tu de… ? / Je te propose de…</td></tr>
+<tr><td>S'excuser</td><td>Je suis vraiment désolé(e) de… / Je te prie de m'excuser pour…</td></tr>
+<tr><td>Demander une réponse</td><td>Dis-moi ce que tu en penses. / Merci de me tenir informé(e).</td></tr>
+<tr><td>Clore (informel)</td><td>À bientôt ! / Bises,</td></tr>
+<tr><td>Clore (formel)</td><td>Cordialement, / Bien à vous,</td></tr>
+</table>
+
+<h3>4. Exemple corrigé (98 mots)</h3>
+<p><em>Consigne : vous ne pouvez pas assister à l'anniversaire de votre ami Karim. Écrivez-lui pour vous excuser, expliquer pourquoi, et proposer de le voir un autre jour.</em></p>
+<div class="tip-box">Salut Karim,<br><br>
+Je suis vraiment désolé, mais je ne pourrai pas venir à ton anniversaire samedi. Mon frère arrive de Montréal ce week-end et je dois aller le chercher à l'aéroport en fin d'après-midi. Je m'en veux beaucoup, parce que j'attendais cette soirée depuis des semaines.<br><br>
+Est-ce qu'on pourrait se voir le week-end suivant ? Je t'invite au restaurant, c'est moi qui offre. Dis-moi quel jour t'arrange.<br><br>
+Encore désolé, et passe une excellente soirée !<br><br>
+À très vite,<br>Thomas</div>
+<p>Remarquez : les trois points de la consigne sont traités, dans l'ordre, et chacun occupe son paragraphe.</p>
+
+<h3>5. Les erreurs qui coûtent le plus cher</h3>
+<table class="vocab-table">
+<tr><th>Erreur</th><th>Conséquence</th></tr>
+<tr><td>Oublier un point de la consigne</td><td>La plus grave : la tâche est considérée comme incomplète</td></tr>
+<tr><td>Écrire moins de 60 mots</td><td>Pénalité automatique</td></tr>
+<tr><td>Mélanger tu et vous</td><td>Incohérence sanctionnée</td></tr>
+<tr><td>Copier la consigne dans le texte</td><td>Ces mots ne comptent pas et font perdre du temps</td></tr>
+<tr><td>Écrire 200 mots</td><td>Pénalité, et plus de fautes mécaniquement</td></tr>
+</table>
+<div class="tip-box"><strong>💡 Gestion du temps :</strong> 2 minutes pour lire et souligner, 10 pour écrire, 3 pour relire. Pendant la relecture, cherchez uniquement trois choses : les accords sujet-verbe, les accords au féminin et au pluriel, et les temps du passé.</div>`,
+    quiz:[
+      {q:'Combien de mots faut-il écrire pour la tâche 1 du TCF Canada ?', q_en:'How many words should you write for TCF Canada writing task 1?', opts:['30 à 60 mots','60 à 120 mots','120 à 150 mots','150 à 200 mots'], opts_zh:['30 到 60 词','60 到 120 词','120 到 150 词','150 到 200 词'], ans:1, exp:'La tâche 1 demande entre 60 et 120 mots. En dessous de 60, la pénalité est automatique.', exp_en:'Task 1 asks for 60 to 120 words. Below 60, the penalty is automatic.', exp_zh:'任务一要求 60 到 120 词。低于 60 词自动扣分。'},
+      {q:'Quelle erreur coûte le plus cher dans la tâche 1 ?', q_en:'Which mistake costs you the most in task 1?', opts:['Une faute d\'orthographe','Oublier un point de la consigne','Une phrase un peu longue','Utiliser un mot familier'], opts_zh:['一个拼写错误','漏掉题目的一个要点','一句话稍微长了点','用了一个口语词'], ans:1, exp:'Oublier un point rend la tâche incomplète. C\'est plus grave qu\'une faute de langue isolée.', exp_en:'Missing a point makes the task incomplete. That is worse than an isolated language error.', exp_zh:'漏掉一个要点会让任务被判为未完成，比单个语言错误严重得多。'},
+      {q:'Vous écrivez à un ami proche. Quelle clôture est adaptée ?', q_en:'You are writing to a close friend. Which sign-off fits?', opts:['Veuillez agréer mes salutations distinguées','À bientôt !','Dans l\'attente de votre réponse','Je vous prie de croire en mon respect'], opts_zh:['Veuillez agréer mes salutations distinguées','À bientôt !','Dans l\'attente de votre réponse','Je vous prie de croire en mon respect'], ans:1, exp:'Entre amis, on reste simple : À bientôt, Bises, Je t\'embrasse. Les formules longues sont réservées aux courriers formels.', exp_en:'Between friends, keep it simple: À bientôt, Bises, Je t\'embrasse. Long formulas are for formal letters.', exp_zh:'朋友之间保持简单：À bientôt、Bises、Je t\'embrasse。冗长的套语只用于正式信函。'},
+      {q:'Combien de temps consacrer à la tâche 1 sur les 60 minutes ?', q_en:'How long should task 1 take out of the 60 minutes?', opts:['Environ 5 minutes','Environ 15 minutes','Environ 30 minutes','Environ 40 minutes'], opts_zh:['大约 5 分钟','大约 15 分钟','大约 30 分钟','大约 40 分钟'], ans:1, exp:'Environ 15 minutes : 2 pour lire, 10 pour écrire, 3 pour relire. Gardez 25 minutes pour la tâche 3.', exp_en:'About 15 minutes: 2 to read, 10 to write, 3 to check. Save 25 minutes for task 3.', exp_zh:'约 15 分钟：2 分钟读题、10 分钟写作、3 分钟检查。要给任务三留出 25 分钟。'},
+      {q:'Compléter : « Je vous écris ___ sujet de votre annonce. »', q_en:'Complete: « Je vous écris ___ sujet de votre annonce. »', opts:['au','du','en','pour'], opts_zh:['au','du','en','pour'], ans:0, exp:'« Au sujet de » est une locution figée : Je vous écris au sujet de votre annonce.', exp_en:'« Au sujet de » is a fixed phrase: Je vous écris au sujet de votre annonce.', exp_zh:'« Au sujet de » 是固定搭配：Je vous écris au sujet de votre annonce.'}
+    ]
+  },
+  /* ─── 82 ─── */
+  {
+    id:82, level:'tcf',
+    title:'Expression écrite — Tâche 2 : l\'article', title_en:'Writing — Task 2: the article',
+    desc:'Raconter et commenter pour un public (120–150 mots).', desc_en:'Narrate and comment for an audience (120–150 words).',
+    tip:'C\'est la tâche où l\'équilibre passé composé / imparfait est le plus surveillé.',
+    tip_en:'This is the task where the passé composé / imparfait balance is watched most closely.',
+    example:'D\'abord… Ensuite… En revanche… En somme…',
+    example_en:'D\'abord… Ensuite… En revanche… En somme…',
+    content:`<h2>📝 Expression écrite — Tâche 2 : l'article ou le témoignage</h2>
+<p>Ici vous ne parlez plus à un ami, mais à un public : lecteurs d'un blog, d'un journal associatif, d'un forum. Vous racontez une expérience et vous donnez votre avis. <strong>120 à 150 mots</strong>, environ <strong>20 minutes</strong>.</p>
+
+<h3>1. La différence avec la tâche 1</h3>
+<table class="vocab-table">
+<tr><th></th><th>Tâche 1</th><th>Tâche 2</th></tr>
+<tr><td>Destinataire</td><td>Une personne connue</td><td>Un public large</td></tr>
+<tr><td>Registre</td><td>Souvent informel</td><td>Courant, jamais familier</td></tr>
+<tr><td>But</td><td>Informer, inviter, s'excuser</td><td>Raconter et commenter</td></tr>
+<tr><td>Longueur</td><td>60–120 mots</td><td>120–150 mots</td></tr>
+</table>
+<div class="tip-box"><strong>💡 Piège classique :</strong> écrire « Salut les amis ! » dans un article de blog. On attend un ton courant : « Bonjour à tous » ou une entrée directe dans le sujet.</div>
+
+<h3>2. La structure en trois temps</h3>
+<table class="vocab-table">
+<tr><th>Partie</th><th>Rôle</th><th>Mots</th></tr>
+<tr><td>Titre + accroche</td><td>Situer le sujet, donner envie de lire</td><td>15–25</td></tr>
+<tr><td>Le récit</td><td>Ce qui s'est passé : où, quand, avec qui, quoi</td><td>60–80</td></tr>
+<tr><td>Le commentaire</td><td>Ce que vous en avez pensé, ce que vous en retenez</td><td>40–50</td></tr>
+</table>
+
+<h3>3. Les temps du passé, le vrai enjeu</h3>
+<p>C'est la tâche où le mélange passé composé / imparfait est le plus surveillé.</p>
+<table class="vocab-table">
+<tr><th>Temps</th><th>Emploi</th><th>Exemple</th></tr>
+<tr><td>Passé composé</td><td>Les actions, ce qui fait avancer le récit</td><td>Je suis arrivé, j'ai visité, nous avons décidé</td></tr>
+<tr><td>Imparfait</td><td>Le décor, les habitudes, les états</td><td>Il faisait beau, les gens souriaient, j'étais fatigué</td></tr>
+<tr><td>Plus-que-parfait</td><td>Un fait antérieur au récit</td><td>Je n'avais jamais vu une telle foule</td></tr>
+</table>
+
+<h3>4. Connecteurs indispensables</h3>
+<table class="vocab-table">
+<tr><th>Fonction</th><th>Connecteurs</th></tr>
+<tr><td>Ordonner</td><td>D'abord, ensuite, puis, enfin</td></tr>
+<tr><td>Ajouter</td><td>De plus, par ailleurs, en outre</td></tr>
+<tr><td>Opposer</td><td>Cependant, en revanche, pourtant</td></tr>
+<tr><td>Expliquer</td><td>En effet, car, c'est pourquoi</td></tr>
+<tr><td>Conclure</td><td>En somme, pour conclure, au final</td></tr>
+</table>
+
+<h3>5. Exemple corrigé (141 mots)</h3>
+<p><em>Consigne : racontez sur le blog de votre association une sortie récente et donnez votre avis.</em></p>
+<div class="tip-box"><strong>Une journée au marché de Jean-Talon</strong><br><br>
+Samedi dernier, notre association a organisé une visite du marché Jean-Talon, à Montréal. Nous étions une quinzaine et il faisait un temps magnifique.<br><br>
+D'abord, un producteur nous a expliqué comment il cultivait ses légumes sans pesticides. Ensuite, nous avons goûté des fromages québécois que je ne connaissais pas du tout. Enfin, nous avons partagé un repas préparé avec ce que chacun avait acheté.<br><br>
+Ce qui m'a le plus marqué, c'est la générosité des commerçants : ils prenaient le temps de répondre, même quand le marché était plein. En revanche, les prix restent élevés pour un budget étudiant.<br><br>
+En somme, une excellente journée. Je recommande vivement cette sortie à ceux qui veulent découvrir la ville autrement.</div>
+
+<h3>6. Relecture ciblée</h3>
+<div class="tip-box"><strong>💡 En 4 minutes, vérifiez dans cet ordre :</strong> 1) les participes passés avec <em>être</em> s'accordent-ils ? 2) chaque « que » est-il suivi du bon mode ? 3) les adjectifs s'accordent-ils avec leur nom ? 4) avez-vous au moins quatre connecteurs différents ?</div>`,
+    quiz:[
+      {q:'Quelle longueur est attendue pour la tâche 2 ?', q_en:'What length is expected for task 2?', opts:['60 à 120 mots','120 à 150 mots','150 à 250 mots','80 à 100 mots'], opts_zh:['60 到 120 词','120 到 150 词','150 到 250 词','80 到 100 词'], ans:1, exp:'La tâche 2 demande 120 à 150 mots, soit un peu plus que la tâche 1.', exp_en:'Task 2 asks for 120 to 150 words, slightly more than task 1.', exp_zh:'任务二要求 120 到 150 词，比任务一略多。'},
+      {q:'Dans un récit au passé, quel temps utilise-t-on pour décrire le décor ?', q_en:'In a past narrative, which tense describes the background?', opts:['Le passé composé','L\'imparfait','Le futur simple','Le conditionnel'], opts_zh:['复合过去时','未完成过去时','简单将来时','条件式'], ans:1, exp:'L\'imparfait pose le décor, les habitudes et les états : il faisait beau, les gens souriaient.', exp_en:'The imparfait sets the scene, habits and states: il faisait beau, les gens souriaient.', exp_zh:'未完成过去时用于描写背景、习惯和状态：il faisait beau, les gens souriaient。'},
+      {q:'Quel connecteur exprime une opposition ?', q_en:'Which connector expresses contrast?', opts:['De plus','En effet','En revanche','D\'abord'], opts_zh:['De plus','En effet','En revanche','D\'abord'], ans:2, exp:'En revanche marque l\'opposition, comme cependant ou pourtant. De plus ajoute, en effet explique, d\'abord ordonne.', exp_en:'En revanche marks contrast, like cependant or pourtant. De plus adds, en effet explains, d\'abord sequences.', exp_zh:'En revanche 表示对比，类似 cependant、pourtant。De plus 是补充，en effet 是解释，d\'abord 是排序。'},
+      {q:'Quel ton convient à un article de blog associatif ?', q_en:'What tone suits a community blog article?', opts:['Familier, comme entre amis','Courant, sans familiarité','Très soutenu et littéraire','Administratif'], opts_zh:['随意，像朋友之间','中性，不用俚语','非常文雅、文学化','公文式'], ans:1, exp:'On vise le registre courant : ni « Salut les amis », ni des tournures littéraires. Vous écrivez pour un public que vous ne connaissez pas.', exp_en:'Aim for the neutral register: neither « Salut les amis » nor literary turns of phrase. You are writing for readers you do not know.', exp_zh:'使用中性语体：既不写 « Salut les amis »，也不用文学化表达。你面对的是不认识的读者。'},
+      {q:'Compléter : « Je n\'___ jamais vu une telle foule. »', q_en:'Complete: « Je n\'___ jamais vu une telle foule. »', opts:['ai','avais','aurai','aurais'], opts_zh:['ai','avais','aurai','aurais'], ans:1, exp:'Le plus-que-parfait (avais vu) exprime un fait antérieur au moment du récit, lui-même au passé.', exp_en:'The pluperfect (avais vu) expresses something earlier than the moment of the narrative, itself in the past.', exp_zh:'愈过去时（avais vu）表示比叙述时刻更早发生的事，而叙述本身已是过去。'}
+    ]
+  },
+  /* ─── 83 ─── */
+  {
+    id:83, level:'tcf',
+    title:'Expression écrite — Tâche 3 : argumenter', title_en:'Writing — Task 3: build an argument',
+    desc:'Synthèse neutre puis opinion argumentée (120–180 mots).', desc_en:'Neutral summary then a reasoned opinion (120–180 words).',
+    tip:'La concession — « Certes… mais » — est ce qui fait vraiment monter la note.',
+    tip_en:'The concession — « Certes… mais » — is what really raises your score.',
+    example:'Le premier document soutient que… • Pour ma part… • Certes… mais…',
+    example_en:'Le premier document soutient que… • Pour ma part… • Certes… mais…',
+    content:`<h2>⚖️ Expression écrite — Tâche 3 : comparer et argumenter</h2>
+<p>C'est la tâche qui départage les candidats. On vous donne deux documents courts qui défendent des positions différentes sur un sujet de société. Vous devez d'abord les résumer sans prendre parti, puis donner votre propre avis. <strong>120 à 180 mots</strong>, environ <strong>25 minutes</strong>.</p>
+
+<h3>1. Deux parties, deux longueurs</h3>
+<table class="vocab-table">
+<tr><th>Partie</th><th>Contenu</th><th>Mots</th></tr>
+<tr><td>Partie 1 — la synthèse</td><td>Les deux points de vue, présentés objectivement</td><td>40 à 60</td></tr>
+<tr><td>Partie 2 — votre opinion</td><td>Votre position, appuyée sur des arguments et des exemples</td><td>80 à 120</td></tr>
+</table>
+<div class="tip-box"><strong>💡 L'erreur n°1 :</strong> donner son avis dès la partie 1. Tant que vous résumez, vous êtes invisible : aucun « je pense », aucun adjectif de jugement. Votre voix n'apparaît qu'en partie 2.</div>
+
+<h3>2. Partie 1 : les tournures qui effacent votre avis</h3>
+<table class="vocab-table">
+<tr><th>Fonction</th><th>Formulation</th></tr>
+<tr><td>Introduire le sujet</td><td>Les deux documents abordent la question de…</td></tr>
+<tr><td>Présenter le premier</td><td>Le premier document défend l'idée que… / soutient que…</td></tr>
+<tr><td>Présenter le second</td><td>Le second, au contraire, estime que… / met en avant…</td></tr>
+<tr><td>Marquer l'opposition</td><td>Alors que… / tandis que… / à l'inverse…</td></tr>
+</table>
+
+<h3>3. Partie 2 : la structure argumentative</h3>
+<table class="vocab-table">
+<tr><th>Étape</th><th>Rôle</th><th>Exemple d'amorce</th></tr>
+<tr><td>Position</td><td>Annoncer clairement votre camp</td><td>Pour ma part, je partage l'avis du second document.</td></tr>
+<tr><td>Argument 1</td><td>La raison principale</td><td>Tout d'abord, il me semble que…</td></tr>
+<tr><td>Exemple</td><td>Un fait concret, vécu ou observé</td><td>Par exemple, dans ma ville…</td></tr>
+<tr><td>Argument 2</td><td>Une raison complémentaire</td><td>De plus, on ne peut ignorer que…</td></tr>
+<tr><td>Concession</td><td>Reconnaître l'autre camp, puis revenir</td><td>Certes… mais / Il est vrai que… néanmoins</td></tr>
+<tr><td>Conclusion</td><td>Une phrase, sans répéter</td><td>C'est pourquoi je reste convaincu que…</td></tr>
+</table>
+<div class="tip-box"><strong>💡 La concession est ce qui fait monter la note.</strong> Un candidat B2 reconnaît la validité partielle de l'avis adverse avant de le dépasser. « Certes, cela coûte cher, mais le coût de l'inaction serait bien supérieur. »</div>
+
+<h3>4. Exemple corrigé (166 mots)</h3>
+<p><em>Sujet : faut-il rendre les transports en commun gratuits ?</em></p>
+<div class="tip-box"><strong>Partie 1</strong><br>
+Les deux documents s'interrogent sur la gratuité des transports en commun. Le premier la défend au nom de l'écologie et de la justice sociale, estimant qu'elle réduirait la circulation automobile. Le second, à l'inverse, met en avant son coût pour les finances publiques et le risque d'une dégradation du service.<br><br>
+<strong>Partie 2</strong><br>
+Pour ma part, je partage plutôt la position du second document. Tout d'abord, un réseau gratuit mais saturé et mal entretenu ne convaincra personne d'abandonner sa voiture : c'est la qualité, non le prix, qui décide. Par exemple, dans ma ville, la fréquentation a augmenté quand les bus sont passés à toutes les dix minutes, pas quand les tarifs ont baissé. De plus, l'argent des billets finance directement l'entretien du matériel.<br><br>
+Certes, la gratuité aiderait réellement les ménages les plus modestes. Mais un tarif social ciblé atteindrait le même objectif sans priver le réseau de ses ressources. C'est pourquoi je préfère un service payant, fiable et accessible.</div>
+
+<h3>5. Gestion du temps sur 25 minutes</h3>
+<table class="vocab-table">
+<tr><th>Durée</th><th>Ce que vous faites</th></tr>
+<tr><td>4 min</td><td>Lire les deux documents, noter l'idée principale de chacun en 5 mots</td></tr>
+<tr><td>3 min</td><td>Choisir votre camp et lister deux arguments + un exemple</td></tr>
+<tr><td>14 min</td><td>Rédiger les deux parties</td></tr>
+<tr><td>4 min</td><td>Relire : accords, modes après « que », compter les mots</td></tr>
+</table>`,
+    quiz:[
+      {q:'Dans la partie 1 de la tâche 3, que devez-vous faire ?', q_en:'In part 1 of task 3, what must you do?', opts:['Donner votre opinion','Résumer les deux points de vue sans prendre parti','Critiquer le document le plus faible','Recopier les deux documents'], opts_zh:['表达你的观点','客观概括两种观点，不表态','批评较弱的那篇材料','抄写两篇材料'], ans:1, exp:'La partie 1 est une synthèse neutre. Aucun « je pense », aucun adjectif de jugement. Votre avis n\'apparaît qu\'en partie 2.', exp_en:'Part 1 is a neutral summary. No « je pense », no judgement adjectives. Your view appears only in part 2.', exp_zh:'第一部分是中立概括。不能出现 « je pense »，不能用评价性形容词。观点只在第二部分出现。'},
+      {q:'Combien de mots pour la partie 1 ?', q_en:'How many words for part 1?', opts:['20 à 30 mots','40 à 60 mots','80 à 120 mots','120 à 180 mots'], opts_zh:['20 到 30 词','40 到 60 词','80 到 120 词','120 到 180 词'], ans:1, exp:'La partie 1 fait 40 à 60 mots, la partie 2 en fait 80 à 120. Total : 120 à 180 mots.', exp_en:'Part 1 is 40–60 words, part 2 is 80–120. Total: 120–180 words.', exp_zh:'第一部分 40–60 词，第二部分 80–120 词，合计 120–180 词。'},
+      {q:'Quelle tournure exprime une concession ?', q_en:'Which phrase expresses a concession?', opts:['Par exemple','Certes… mais','Tout d\'abord','En effet'], opts_zh:['Par exemple','Certes… mais','Tout d\'abord','En effet'], ans:1, exp:'Certes… mais reconnaît la validité partielle de l\'avis adverse avant de le dépasser. C\'est la marque d\'un niveau B2.', exp_en:'Certes… mais acknowledges the opposing view is partly valid before moving beyond it. It is a B2 marker.', exp_zh:'Certes… mais 先承认对方观点部分合理，再超越它，这是 B2 水平的标志。'},
+      {q:'Combien de temps consacrer à la tâche 3 ?', q_en:'How much time should task 3 take?', opts:['Environ 10 minutes','Environ 15 minutes','Environ 25 minutes','Environ 40 minutes'], opts_zh:['约 10 分钟','约 15 分钟','约 25 分钟','约 40 分钟'], ans:2, exp:'Environ 25 minutes sur les 60 : c\'est la tâche la plus longue et la plus exigeante des trois.', exp_en:'About 25 minutes out of 60: it is the longest and most demanding of the three tasks.', exp_zh:'在 60 分钟中约占 25 分钟：这是三个任务中最长、要求最高的一个。'},
+      {q:'Compléter : « Pour ma part, je ___ l\'avis du second document. »', q_en:'Complete: « Pour ma part, je ___ l\'avis du second document. »', opts:['partage','partager','partagé','partagerais'], opts_zh:['partage','partager','partagé','partagerais'], ans:0, exp:'Présent de l\'indicatif, 1re personne : je partage. On annonce sa position au présent, de façon assumée.', exp_en:'Present indicative, first person: je partage. You state your position in the present, plainly.', exp_zh:'直陈式现在时第一人称：je partage。表明立场要用现在时，明确直接。'}
+    ]
+  },
+  /* ─── 84 ─── */
+  {
+    id:84, level:'tcf',
+    title:'Expression orale — les 3 tâches', title_en:'Speaking — the 3 tasks',
+    desc:'Entretien, interaction et point de vue : 12 minutes décortiquées.', desc_en:'Interview, interaction and point of view: 12 minutes broken down.',
+    tip:'Le silence est votre seul vrai ennemi : contournez le mot qui manque au lieu de vous bloquer.',
+    tip_en:'Silence is your only real enemy: work around the missing word instead of freezing.',
+    example:'Pourriez-vous me dire… ? • Selon moi… • En définitive…',
+    example_en:'Pourriez-vous me dire… ? • Selon moi… • En définitive…',
+    content:`<h2>🎤 Expression orale — les trois tâches en détail</h2>
+<p>L'épreuve dure <strong>12 minutes</strong> en face-à-face avec un examinateur. Trois tâches, trois compétences très différentes. Beaucoup de candidats perdent des points simplement parce qu'ils ne savent pas ce qu'on attend d'eux à chaque étape.</p>
+
+<h3>1. Vue d'ensemble</h3>
+<table class="vocab-table">
+<tr><th>Tâche</th><th>Durée</th><th>Préparation</th><th>Ce qu'on évalue</th></tr>
+<tr><td>1 — Entretien dirigé</td><td>2 min</td><td>Aucune</td><td>Échanger avec un inconnu</td></tr>
+<tr><td>2 — Exercice en interaction</td><td>5 min 30</td><td>2 min</td><td>Obtenir des informations</td></tr>
+<tr><td>3 — Point de vue</td><td>4 min 30</td><td>Aucune</td><td>Parler de façon continue et convaincante</td></tr>
+</table>
+
+<h3>2. Tâche 1 — l'entretien dirigé</h3>
+<p>L'examinateur vous pose des questions simples sur vous : votre travail, vos études, votre ville, vos loisirs. Il n'y a pas de préparation, et c'est voulu : on teste votre spontanéité.</p>
+<table class="vocab-table">
+<tr><th>À faire</th><th>À éviter</th></tr>
+<tr><td>Développer chaque réponse en 2 ou 3 phrases</td><td>Répondre « Oui » ou « J'aime bien »</td></tr>
+<tr><td>Donner un détail concret</td><td>Réciter une présentation apprise par cœur</td></tr>
+<tr><td>Relancer : « Et vous, vous connaissez ? »</td><td>Attendre passivement la question suivante</td></tr>
+</table>
+<div class="tip-box"><strong>💡 La règle des trois phrases :</strong> à « Que faites-vous dans la vie ? », ne répondez pas « Je suis infirmier ». Dites : « Je suis infirmier dans un hôpital public depuis quatre ans. Je travaille surtout de nuit, aux urgences. C'est fatigant, mais je ne me vois pas faire autre chose. »</div>
+
+<h3>3. Tâche 2 — l'exercice en interaction</h3>
+<p>On vous donne une situation : vous voulez vous inscrire à un cours, louer un appartement, organiser un voyage. Vous avez 2 minutes pour préparer, puis vous devez <strong>poser des questions</strong> à l'examinateur pour obtenir les informations qui vous manquent.</p>
+<table class="vocab-table">
+<tr><th>Type de question</th><th>Formulation</th></tr>
+<tr><td>Ouverte</td><td>Pourriez-vous me dire comment… ?</td></tr>
+<tr><td>Sur le prix</td><td>Quel est le tarif ? Y a-t-il des frais supplémentaires ?</td></tr>
+<tr><td>Sur les conditions</td><td>Quelles sont les démarches à suivre ?</td></tr>
+<tr><td>Vérifier</td><td>Si je comprends bien, il faut… ?</td></tr>
+<tr><td>Relancer</td><td>D'accord. Et en ce qui concerne… ?</td></tr>
+</table>
+<div class="tip-box"><strong>💡 Pendant les 2 minutes de préparation, écrivez cinq questions.</strong> C'est le seul moment de l'épreuve où vous pouvez noter quelque chose. Un candidat qui pose cinq questions précises obtient une bien meilleure note qu'un candidat qui en pose deux et se tait.</div>
+
+<h3>4. Tâche 3 — l'expression d'un point de vue</h3>
+<p>On vous donne un sujet de société et vous parlez seul, sans préparation, pendant environ 4 minutes 30. C'est la tâche la plus redoutée, et c'est aussi celle qui se travaille le mieux, parce que le plan est toujours le même.</p>
+<table class="vocab-table">
+<tr><th>Étape</th><th>Durée</th><th>Amorce</th></tr>
+<tr><td>Reformuler le sujet</td><td>20 s</td><td>Le sujet nous invite à réfléchir à…</td></tr>
+<tr><td>Annoncer votre position</td><td>15 s</td><td>Selon moi, … et je vais expliquer pourquoi.</td></tr>
+<tr><td>Argument 1 + exemple</td><td>1 min 15</td><td>Premièrement, … Je pense notamment à…</td></tr>
+<tr><td>Argument 2 + exemple</td><td>1 min 15</td><td>Deuxièmement, … Prenons le cas de…</td></tr>
+<tr><td>Concession</td><td>45 s</td><td>Bien sûr, on pourrait objecter que… Cependant…</td></tr>
+<tr><td>Conclusion</td><td>30 s</td><td>En définitive, je dirais que…</td></tr>
+</table>
+
+<h3>5. Ce qui fait vraiment gagner des points</h3>
+<table class="vocab-table">
+<tr><th>Comportement</th><th>Effet</th></tr>
+<tr><td>Parler lentement et articuler</td><td>Meilleure impression que parler vite avec des erreurs</td></tr>
+<tr><td>Se reprendre calmement</td><td>« Pardon, je voulais dire… » est valorisé, pas pénalisé</td></tr>
+<tr><td>Utiliser des connecteurs à l'oral</td><td>Structure audible : d'une part, en revanche, en définitive</td></tr>
+<tr><td>Occuper tout le temps imparti</td><td>S'arrêter à 2 minutes sur 4 min 30 plafonne la note</td></tr>
+</table>
+<div class="tip-box"><strong>💡 Le silence est votre seul vrai ennemi.</strong> Si un mot vous manque, contournez-le au lieu de vous bloquer : « je ne trouve pas le mot exact, mais c'est l'endroit où l'on va pour… ». Cette capacité à reformuler est une compétence évaluée, pas un aveu de faiblesse.</div>`,
+    quiz:[
+      {q:'Combien de temps dure l\'épreuve d\'expression orale du TCF Canada ?', q_en:'How long is the TCF Canada speaking test?', opts:['6 minutes','12 minutes','20 minutes','30 minutes'], opts_zh:['6 分钟','12 分钟','20 分钟','30 分钟'], ans:1, exp:'12 minutes au total : 2 minutes pour la tâche 1, 5 min 30 pour la tâche 2, 4 min 30 pour la tâche 3.', exp_en:'12 minutes in total: 2 minutes for task 1, 5:30 for task 2, 4:30 for task 3.', exp_zh:'共 12 分钟：任务一 2 分钟，任务二 5 分 30 秒，任务三 4 分 30 秒。'},
+      {q:'Quelle tâche vous donne 2 minutes de préparation ?', q_en:'Which task gives you 2 minutes of preparation?', opts:['La tâche 1','La tâche 2','La tâche 3','Les trois'], opts_zh:['任务一','任务二','任务三','三个都有'], ans:1, exp:'Seule la tâche 2 offre 2 minutes de préparation. Les tâches 1 et 3 se font sans préparation.', exp_en:'Only task 2 gives 2 minutes of preparation. Tasks 1 and 3 have none.', exp_zh:'只有任务二有 2 分钟准备时间。任务一和任务三都没有准备时间。'},
+      {q:'Dans la tâche 2, votre rôle principal est de…', q_en:'In task 2, your main role is to…', opts:['Répondre aux questions de l\'examinateur','Poser des questions pour obtenir des informations','Raconter votre vie','Lire un texte à voix haute'], opts_zh:['回答考官的问题','提问以获取信息','讲述你的生活','朗读一段文字'], ans:1, exp:'La tâche 2 évalue votre capacité à obtenir des informations. C\'est vous qui menez l\'échange en posant des questions.', exp_en:'Task 2 assesses your ability to obtain information. You lead the exchange by asking questions.', exp_zh:'任务二考查你获取信息的能力。由你主导对话，负责提问。'},
+      {q:'Que faire si un mot vous manque pendant l\'épreuve ?', q_en:'What should you do if a word escapes you during the test?', opts:['Rester silencieux jusqu\'à le retrouver','Le dire dans votre langue','Le contourner en le décrivant autrement','Changer complètement de sujet'], opts_zh:['保持沉默直到想起来','用母语说出来','换一种说法绕过去','彻底换个话题'], ans:2, exp:'Reformuler est une compétence évaluée : « c\'est l\'endroit où l\'on va pour… ». Le silence, lui, est toujours pénalisant.', exp_en:'Rephrasing is an assessed skill: « c\'est l\'endroit où l\'on va pour… ». Silence is always penalised.', exp_zh:'换一种说法本身就是考查项：« c\'est l\'endroit où l\'on va pour… »。沉默才总是失分。'},
+      {q:'Compléter : « En ___, je dirais que le télétravail présente plus d\'avantages. »', q_en:'Complete: « En ___, je dirais que le télétravail présente plus d\'avantages. »', opts:['définitive','définitif','définition','définir'], opts_zh:['définitive','définitif','définition','définir'], ans:0, exp:'« En définitive » est une locution figée qui introduit la conclusion, comme « en somme » ou « finalement ».', exp_en:'« En définitive » is a fixed phrase introducing a conclusion, like « en somme » or « finalement ».', exp_zh:'« En définitive » 是引出结论的固定短语，类似 « en somme »、« finalement »。'}
     ]
   }
 ];
@@ -23884,6 +24581,37 @@ function finishOnboarding() {
 /* ══════════════════════════════════════
    INIT
 ══════════════════════════════════════ */
+/* ══════════════════════════════════════
+   COMPTEURS DE LEÇONS — jamais codés en dur
+══════════════════════════════════════ */
+function syncLessonCounts() {
+  try {
+    var total = LESSONS.length;
+    var tcf   = LESSONS.filter(function(l){ return l.level === 'tcf'; }).length;
+    function fix(txt) {
+      if (!txt) return txt;
+      return txt
+        .replace(/\d+(\s*)(le\u00e7ons interactives|le\u00e7ons structur\u00e9es|le\u00e7ons)/g, total + '$1$2')
+        .replace(/\d+(\s*)(structured lessons|interactive lessons|lessons)/g, total + '$1$2')
+        .replace(/\d+(\u8282(?:\u7ed3\u6784\u5316|\u4e92\u52a8)?\u8bfe\u7a0b)/g, total + '$1')
+        .replace(/\d+(\s*le\u00e7ons sp\u00e9ciales)/g, tcf + '$1')
+        .replace(/\d+(\s*special immigration lessons)/g, tcf + '$1')
+        .replace(/\d+(\u8282\u7279\u522b\u79fb\u6c11\u8bfe\u7a0b)/g, tcf + '$1');
+    }
+    document.querySelectorAll('.ob-i18n').forEach(function(el){
+      ['fr','en','zh'].forEach(function(lg){
+        var v = el.getAttribute('data-'+lg);
+        var nv = fix(v);
+        if (nv && nv !== v) el.setAttribute('data-'+lg, nv);
+      });
+      var t = fix(el.textContent);
+      if (t && t !== el.textContent) el.textContent = t;
+    });
+    var md = document.querySelector('meta[name="description"]');
+    if (md) md.setAttribute('content', fix(md.getAttribute('content')));
+  } catch (_e) { console.warn('[FG] syncLessonCounts', _e); }
+}
+
 function initApp() {
   buildFCDeck();
   // Restore TTS speed preference
@@ -23895,6 +24623,7 @@ function initApp() {
   initMascot();
   showTab('home');
   updateNav();
+  syncLessonCounts();
   // Applique la langue enregistrée dès le démarrage (sinon l'UI reste en français)
   try { renderCurrentView(); } catch(_e) { console.warn('[FG] initApp renderCurrentView', _e); }
   // hideSplash() est appelé dans le boot IIFE (après décision onboarding)
