@@ -687,6 +687,15 @@
     .quick-review-btn .qr-title { font-size:14px; font-weight:800; }
     .quick-review-btn .qr-sub   { font-size:11.5px; opacity:0.85; margin-top:1px; }
     .quick-review-btn .qr-arrow { font-size:18px; opacity:0.7; }
+    /* Texte de lecture affiche pendant le quiz (comprehension ecrite) */
+    .quiz-passage { background:var(--bg-soft,#f6f7fb); border:1px solid var(--border);
+      border-radius:12px; padding:13px 15px; margin-bottom:12px; max-height:34vh; overflow-y:auto;
+      font-size:14.5px; line-height:1.62; text-align:left; }
+    .quiz-passage h4 { margin:0 0 7px; font-size:12px; text-transform:uppercase; letter-spacing:0.06em;
+      opacity:0.6; font-weight:700; }
+    .quiz-passage p { margin:0 0 8px; }
+    .quiz-passage p:last-child { margin-bottom:0; }
+    .quiz-timer-wrap { }
     /* Quiz timer */
     .quiz-timer-wrap { display:flex; align-items:center; gap:7px; margin-bottom:8px; }
     .quiz-timer-bar-bg { flex:1; background:var(--border); border-radius:99px; height:5px; overflow:hidden; }
@@ -2064,6 +2073,7 @@ window._splashFailsafe = setTimeout(function() {
         <span class="quiz-timer-num" id="quiz-timer-num">25</span>
       </div>
       <div class="quiz-question-num" id="q-num"></div>
+      <div class="quiz-passage" id="q-passage" style="display:none"></div>
       <div class="quiz-question" id="q-text"></div>
       <div class="quiz-options" id="q-options"></div>
       <div class="feedback-box" id="q-feedback"></div>
@@ -2344,7 +2354,7 @@ window._splashFailsafe = setTimeout(function() {
 /* ══════════════════════════════════════
    FREEMIUM CONFIG  ← modifiez ici !
 ══════════════════════════════════════ */
-const FREE_LESSONS  = [75, 76, 77, 78, 79, 80, 0, 1, 2, 3, 4, 5, 6, 11, 12, 35, 65, 68, 81]; // IDs des leçons gratuites
+const FREE_LESSONS  = [75, 76, 77, 78, 79, 80, 0, 1, 2, 3, 4, 5, 6, 11, 12, 35, 65, 68, 81,85]; // IDs des leçons gratuites
 const UNLOCK_CODE_HASH = '9b603d420459bde57879ed37f77899dd9ebfe468709a5153a5558bde5bf3e8cf'; // SHA-256 du code
 const GUMROAD_URL   = 'https://aceemusic6.gumroad.com/l/klcdld'; // purchase page — web only, not shown in TWA app
 
@@ -7615,6 +7625,8 @@ const T = {
    CHINESE CONTENT & TITLES
 ══════════════════════════════════════ */
 const TITLES_ZH = {
+
+  85:{title:'模拟测试 — 阅读理解',desc:'30 题，45 分钟，7 篇文本，计时进行'},
   75:{title:'发音基础',desc:'字母表、元音、字母组合与连诵'},
   0:{title:'问候语',desc:'你好，再见，谢谢…'},
   1:{title:'数字 1–20',desc:'轻松用法语数数'},
@@ -7660,7 +7672,7 @@ const TITLES_ZH = {
   41:{title:'TCF主题词汇——社会与环境',desc:'TCF/TEF文本中的常见主题'},
   42:{title:'TCF/TEF进阶语法',desc:'让你脱颖而出的语法结构'},
   43:{title:'表达方式与语言风格',desc:'从口语到正式书面语'},
-  44:{title:'模拟测试——TCF/TEF风格',desc:'用真实TCF风格题目测试自己'},
+  44:{title:'按题型分类的应试策略',desc:'按题目类型逐一拆解应试方法'},
   45:{title:'现在虚拟式',desc:'表达怀疑、意愿和情感'},
   46:{title:'条件式',desc:'礼貌用语、假设和想象情境'},
   47:{title:'间接引语',desc:'转述他人话语'},
@@ -7703,6 +7715,23 @@ const TITLES_ZH = {
   84:{title:'口语表达 —— 三个任务',desc:'面谈、互动与观点表达：12 分钟逐项拆解。'},
 };
 const CONTENT_ZH = {
+  85: `<h2>⏱️ 模拟测试 — 阅读理解</h2>
+<p><b>30 题 · 45 分钟 · 7 篇文本</b></p>
+<p>本次模拟沿用 TCF Canada 的真实节奏：正式考试为 60 分钟 39 题，约每题 92 秒。
+这里是 45 分钟 30 题，每题 90 秒。节奏相同，时长更短。</p>
+<table><tr><th>规则</th><th>原因</th></tr>
+<tr><td>采用总计时</td><td>与考试一致：时间由你自己在整套题中分配</td></tr>
+<tr><td>结束前不显示对错</td><td>你不会知道自己答得对不对——考试当天正是如此</td></tr>
+<tr><td>文本和题目均为法语</td><td>翻译会让练习比真实考试更容易</td></tr>
+<tr><td>文本由易到难</td><td>这是真实试卷的编排方式</td></tr></table>
+<h3>开始之前</h3>
+<table><tr><th>建议</th><th>说明</th></tr>
+<tr><td>先看题，再读文</td><td>带着目标去找，而不是通读全文</td></tr>
+<tr><td>绝不卡在一题上</td><td>难题和易题分值相同。作答后立刻推进。</td></tr>
+<tr><td>警惕原词重现</td><td>照搬文中词语的选项往往是陷阱</td></tr>
+<tr><td>一次性做完</td><td>45 分钟不中断，否则练习没有意义</td></tr></table>
+<p><b>结束后</b>会显示你的分数以及每道题的详细解析。
+24/30 及以上，说明你的阅读能力处于 NCLC 7 的预期区间。</p>`,
   75:`<h2>🔤 发音基础</h2>
 <p>学说法语之前，先了解法语的发音规则。本课覆盖字母表、重音符号、鼻化元音、常见字母组合和联诵规则。</p>
 
@@ -9919,6 +9948,24 @@ const QUIZ_ZH = {
 };
 
 const CONTENT_EN = {
+  85: `<h2>⏱️ Mock Test — Reading Comprehension</h2>
+<p><b>30 questions · 45 minutes · 7 documents</b></p>
+<p>This mock test follows the real rhythm of TCF Canada: the official exam has 39 questions
+in 60 minutes, about 92 seconds per question. Here you get 30 questions in 45 minutes —
+90 seconds each. Same pace, shorter test.</p>
+<table><tr><th>Rule</th><th>Why</th></tr>
+<tr><td>One global timer</td><td>Like the exam: you manage your own time across the whole paper</td></tr>
+<tr><td>No corrections until the end</td><td>You won't know if you were right — that's exam day</td></tr>
+<tr><td>Documents and questions are in French</td><td>Translating them would make this easier than the real test</td></tr>
+<tr><td>Texts get harder as you go</td><td>That is how the real paper is built</td></tr></table>
+<h3>Before you start</h3>
+<table><tr><th>Tip</th><th>Detail</th></tr>
+<tr><td>Read the question before the text</td><td>You'll know what to look for instead of reading everything</td></tr>
+<tr><td>Never get stuck</td><td>A hard question is worth the same as an easy one. Answer and move on.</td></tr>
+<tr><td>Beware of identical words</td><td>An option that repeats a word from the text is often a trap</td></tr>
+<tr><td>Do it in one sitting</td><td>45 uninterrupted minutes, otherwise the practice is worthless</td></tr></table>
+<p><b>At the end</b> you'll see your score and a full explanation for every question.
+24/30 or above puts you in the expected range for NCLC 7 in reading.</p>`,
   0: `<h2>🤝 Greetings</h2><p>Greetings are the foundation of any French conversation. Here are the most essential expressions!</p><h3>Basic greetings</h3><table class="vocab-table"><tr><td>Bonjour</td><td>Hello / Good morning</td></tr><tr><td>Bonsoir</td><td>Good evening</td></tr><tr><td>Bonne nuit</td><td>Good night</td></tr><tr><td>Au revoir</td><td>Goodbye</td></tr><tr><td>Salut !</td><td>Hi! / Bye! (informal)</td></tr><tr><td>À bientôt</td><td>See you soon</td></tr><tr><td>À demain</td><td>See you tomorrow</td></tr></table><h3>Introducing yourself</h3><table class="vocab-table"><tr><td>Je m'appelle…</td><td>My name is…</td></tr><tr><td>Comment vous appelez-vous ?</td><td>What is your name? (formal)</td></tr><tr><td>Tu t'appelles comment ?</td><td>What's your name? (informal)</td></tr><tr><td>Enchanté(e) !</td><td>Nice to meet you!</td></tr></table><h3>Asking how someone is</h3><table class="vocab-table"><tr><td>Comment allez-vous ?</td><td>How are you? (formal)</td></tr><tr><td>Ça va ?</td><td>How are you? (informal)</td></tr><tr><td>Très bien, merci !</td><td>Very well, thank you!</td></tr><tr><td>Pas mal.</td><td>Not bad.</td></tr><tr><td>Comme ci, comme ça.</td><td>So-so.</td></tr></table><p>💡 Use <strong>Bonjour</strong> until around 6pm, then switch to <strong>Bonsoir</strong>.</p>`,
   1: `<h2>🔢 Numbers 1–20</h2><p>Numbers in French are essential for everyday situations — shopping, time, phone numbers and more.</p><h3>1 to 10</h3><table class="vocab-table"><tr><td>1 — un / une</td><td>2 — deux</td></tr><tr><td>3 — trois</td><td>4 — quatre</td></tr><tr><td>5 — cinq</td><td>6 — six</td></tr><tr><td>7 — sept</td><td>8 — huit</td></tr><tr><td>9 — neuf</td><td>10 — dix</td></tr></table><h3>11 to 20</h3><table class="vocab-table"><tr><td>11 — onze</td><td>12 — douze</td></tr><tr><td>13 — treize</td><td>14 — quatorze</td></tr><tr><td>15 — quinze</td><td>16 — seize</td></tr><tr><td>17 — dix-sept</td><td>18 — dix-huit</td></tr><tr><td>19 — dix-neuf</td><td>20 — vingt</td></tr></table><h3>In practice</h3><table class="vocab-table"><tr><td>J'ai trois frères.</td><td>I have three brothers.</td></tr><tr><td>Il a vingt ans.</td><td>He is twenty years old.</td></tr><tr><td>C'est le quinze.</td><td>It's the fifteenth.</td></tr></table><p>💡 <strong>Un</strong> changes to <strong>une</strong> before feminine nouns: <em>un chien</em> (a dog) / <em>une chatte</em> (a female cat).</p>`,
   2: `<h2>🎨 Colours</h2><p>Colours in French must agree in gender and number with the noun they describe.</p><h3>Basic colours</h3><table class="vocab-table"><tr><td>rouge</td><td>red</td></tr><tr><td>bleu(e)</td><td>blue</td></tr><tr><td>vert(e)</td><td>green</td></tr><tr><td>jaune</td><td>yellow</td></tr><tr><td>orange</td><td>orange</td></tr><tr><td>violet(te)</td><td>purple</td></tr><tr><td>rose</td><td>pink</td></tr><tr><td>noir(e)</td><td>black</td></tr><tr><td>blanc / blanche</td><td>white</td></tr><tr><td>gris(e)</td><td>grey</td></tr><tr><td>marron</td><td>brown</td></tr></table><h3>Agreement rules</h3><p>Colours placed after the noun change to match gender and number:</p><table class="vocab-table"><tr><td>un chat noir</td><td>a black cat (masc.)</td></tr><tr><td>une voiture noire</td><td>a black car (fem.)</td></tr><tr><td>des chats noirs</td><td>black cats (plural)</td></tr></table><p>💡 <strong>Marron</strong> and <strong>orange</strong> never change form: <em>des chaussures marron</em>.</p>`,
@@ -10375,6 +10422,95 @@ Certes, la gratuité aiderait réellement les ménages les plus modestes. Mais u
 /* ══════════════════════════════════════
    LESSONS DATA
 ══════════════════════════════════════ */
+const PASSAGES = {
+  'ce1': `<h4>Texte 1 — Annonce</h4>
+<p><b>Studio meublé — Villeurbanne (69)</b><br>
+26 m², 3<sup>e</sup> étage sans ascenseur, très lumineux. Cuisine équipée, salle d'eau refaite en 2024.
+Charges comprises : eau, chauffage collectif, entretien des parties communes.<br>
+<b>Loyer : 545 € charges comprises.</b> Dépôt de garantie : un mois de loyer hors charges.<br>
+Disponible à partir du 1<sup>er</sup> octobre. Dossier avec garant exigé.
+Visites uniquement le samedi matin, sur rendez-vous. Pas d'animaux.</p>`,
+  'ce2': `<h4>Texte 2 — Note affichée dans un immeuble</h4>
+<p><b>AVIS AUX RÉSIDENTS</b></p>
+<p>Des travaux de réfection de la toiture débuteront le lundi 6 octobre et dureront environ trois semaines.
+Pendant toute la durée du chantier, l'accès à la cour intérieure sera interdit et les places de
+stationnement n° 1 à 8 seront neutralisées. Les véhicules devront être déplacés avant le dimanche 5 octobre au soir ;
+passé ce délai, ils seront enlevés aux frais de leur propriétaire.</p>
+<p>Les nuisances sonores auront lieu du lundi au vendredi, de 8 h à 17 h. Aucun travail ne sera effectué le week-end.
+Nous vous remercions de votre compréhension.</p>
+<p><i>Le syndic</i></p>`,
+  'ce3': `<h4>Texte 3 — Courriel</h4>
+<p>Objet : Suite à votre candidature — poste de chargé de clientèle</p>
+<p>Madame,</p>
+<p>Nous avons bien reçu votre candidature et nous vous remercions de l'intérêt que vous portez à notre entreprise.
+Votre profil a retenu notre attention, en particulier votre expérience dans le secteur bancaire.</p>
+<p>Toutefois, le poste que vous visiez a été pourvu en interne la semaine dernière. Nous nous permettons
+néanmoins de vous proposer un entretien pour un poste similaire qui s'ouvrira en novembre, dans notre
+agence de Rennes. Il s'agit d'un contrat à durée indéterminée, à temps plein.</p>
+<p>Si cette proposition vous intéresse, merci de nous le faire savoir avant le 20 septembre, en nous
+indiquant vos disponibilités. Dans le cas contraire, nous conserverons votre dossier pendant un an.</p>
+<p>Veuillez agréer, Madame, l'expression de nos salutations distinguées.</p>
+<p>C. Berthier — Service des ressources humaines</p>`,
+  'ce4': `<h4>Texte 4 — Article</h4>
+<p><b>La voiture recule, mais pas partout</b></p>
+<p>Dans les grandes villes françaises, la part des déplacements effectués en voiture diminue régulièrement
+depuis une quinzaine d'années. À Paris, à Lyon ou à Strasbourg, l'ouverture de nouvelles lignes de tramway
+et la multiplication des pistes cyclables ont profondément modifié les habitudes.</p>
+<p>Le tableau est cependant très différent dès que l'on s'éloigne des centres. Dans les communes rurales,
+où l'offre de transport collectif reste faible, plus de huit déplacements sur dix se font encore en voiture.
+Pour beaucoup d'habitants, il ne s'agit pas d'un choix mais d'une nécessité : sans automobile, ni l'emploi
+ni les services de santé ne sont accessibles.</p>
+<p>Les spécialistes s'accordent sur un point : les mesures qui fonctionnent en ville — stationnement payant,
+zones à faibles émissions — sont inefficaces, voire contre-productives, ailleurs. Ce qui manque dans les
+territoires peu denses n'est pas la contrainte, c'est l'alternative.</p>`,
+  'ce5': `<h4>Texte 5 — Article</h4>
+<p><b>Le télétravail, cinq ans après</b></p>
+<p>Après une adoption massive et brutale, le travail à distance s'est stabilisé autour d'un format hybride :
+deux à trois jours par semaine à domicile, le reste au bureau. Les enquêtes montrent que ce compromis
+satisfait la majorité des salariés concernés, mais elles révèlent aussi des effets qu'on avait d'abord
+sous-estimés.</p>
+<p>Le premier tient à l'inégalité d'accès. Le télétravail reste très largement réservé aux cadres et aux
+professions intellectuelles ; il est pratiquement inexistant dans l'industrie, le commerce et les métiers du soin.
+Là où l'on parlait d'une transformation générale du travail, il faut plutôt lire une transformation d'une
+partie du salariat.</p>
+<p>Le second effet concerne les débuts de carrière. Plusieurs études signalent que les salariés recrutés à
+distance mettent plus de temps à se sentir intégrés et quittent leur poste plus tôt. L'apprentissage informel —
+celui qui se fait en écoutant un collègue au téléphone, en posant une question par-dessus un bureau — n'a pas
+trouvé d'équivalent en visioconférence.</p>
+<p>Reste que le retour en arrière paraît improbable. Les entreprises qui ont tenté d'imposer cinq jours de
+présence ont, pour la plupart, reculé devant les départs.</p>`,
+  'ce6': `<h4>Texte 6 — Point de vue</h4>
+<p><b>Réparer plutôt que remplacer</b></p>
+<p>Un appareil électroménager sur deux tombe en panne avant sa huitième année, et près de la moitié de ces
+appareils ne sont jamais réparés. Le coût de la réparation, souvent proche de celui d'un produit neuf,
+explique en grande partie ce renoncement. Mais il serait injuste de faire porter la responsabilité au seul
+consommateur.</p>
+<p>Pendant des décennies, la conception des objets a suivi une logique inverse de la durabilité : pièces
+collées plutôt que vissées, composants indissociables, documentation technique réservée aux réseaux agréés.
+Un appareil que l'on ne peut pas ouvrir est un appareil que l'on ne réparera pas, quel que soit le prix
+de la main-d'œuvre.</p>
+<p>Les mesures récentes — indice de réparabilité, obligation de fournir des pièces détachées pendant une
+durée minimale, aide financière au recours à un réparateur — vont dans la bonne direction. Elles restent
+insuffisantes tant que le neuf demeure aussi bon marché. Tant qu'un lave-linge neuf coûtera moins de trois
+cents euros, aucune campagne de sensibilisation ne convaincra un ménage de dépenser cent quatre-vingts euros
+pour en sauver un ancien.</p>`,
+  'ce7': `<h4>Texte 7 — Deux opinions</h4>
+<p><b>A — Camille, professeure de lettres</b><br>
+Interdire ces outils à l'école est une bataille perdue d'avance : les élèves les utilisent déjà, chez eux,
+sans que personne ne leur ait montré comment. Mon travail n'est pas de faire semblant qu'ils n'existent pas,
+mais d'apprendre à mes classes à vérifier ce qu'on leur affiche. Nous consacrons désormais une heure par
+quinzaine à confronter un texte produit par une machine à une source réelle. Les élèves y découvrent des
+erreurs, et cette découverte leur apprend davantage sur la fiabilité d'une information que n'importe quel
+cours magistral.</p>
+<p><b>B — Julien, professeur d'histoire</b><br>
+Je ne conteste pas l'intérêt de ces séances, et je les pratique moi-même en terminale. Ce qui m'inquiète se
+situe en amont. Pour vérifier un texte, encore faut-il savoir écrire le sien, et être capable de tenir un
+raisonnement sur plusieurs paragraphes. Or c'est précisément cette compétence-là que l'outil dispense
+d'exercer. En seconde, je vois des copies impeccables sur la forme dont l'auteur est incapable de défendre
+une seule phrase à l'oral. Je ne demande pas l'interdiction ; je demande qu'on n'introduise pas l'outil avant
+que la compétence qu'il remplace ne soit solidement acquise.</p>`,
+};
+
 const LESSONS = [
   /* ─── 75 ─── */
   {
@@ -12542,9 +12678,9 @@ const LESSONS = [
   /* ─── 44 ─── */
   {
     id:44, level:'tcf',
-    title:'Simulation — Quiz style TCF/TEF', title_en:'Simulation — TCF/TEF Style Quiz',
-    desc:'Testez-vous avec de vraies questions style TCF', desc_en:'Test yourself with real TCF-style questions',
-    content:`<h2>🎯 Simulation TCF/TEF — Entraînez-vous !</h2>
+    title:'Stratégies par type de question', title_en:'Strategies by Question Type',
+    desc:'Les bons réflexes selon le type de question', desc_en:'The right reflex for each type of question',
+    content:`<h2>🎯 Stratégies par type de question</h2>
 <p>Ce quiz simule le style et la difficulté des vraies questions du TCF/TEF Canada. Bonne chance !</p>
 <h3>Conseils avant de commencer</h3>
 <table class="vocab-table">
@@ -12576,7 +12712,7 @@ const LESSONS = [
 </table>
 <div class="tip-box"><strong>💡 Plan de révision (4 semaines) :</strong><br>• Semaine 1 : Vocabulaire thématique + grammaire B2<br>• Semaine 2 : CO/CE — 30 min d'écoute et lecture par jour<br>• Semaine 3 : EE — rédiger 2 textes par semaine + correction<br>• Semaine 4 : EO — s'enregistrer et écouter ses productions</div>
 <div class="example-box">Rappel : le TCF/TEF Canada est valable 2 ans. Planifiez votre test au moins 2-3 mois avant votre dépôt de dossier d'immigration !</div>`,
-    content_en:`<h2>🎯 TCF/TEF Simulation — Practise!</h2>
+    content_en:`<h2>🎯 Strategies by question type</h2>
 <p>This quiz simulates the style and difficulty of real TCF/TEF Canada questions. Good luck!</p>
 <h3>Tips before you start</h3>
 <table class="vocab-table">
@@ -15948,7 +16084,64 @@ Certes, la gratuité aiderait réellement les ménages les plus modestes. Mais u
       {q:'Que faire si un mot vous manque pendant l\'épreuve ?', q_en:'What should you do if a word escapes you during the test?', opts:['Rester silencieux jusqu\'à le retrouver','Le dire dans votre langue','Le contourner en le décrivant autrement','Changer complètement de sujet'], opts_zh:['保持沉默直到想起来','用母语说出来','换一种说法绕过去','彻底换个话题'], ans:2, exp:'Reformuler est une compétence évaluée : « c\'est l\'endroit où l\'on va pour… ». Le silence, lui, est toujours pénalisant.', exp_en:'Rephrasing is an assessed skill: « c\'est l\'endroit où l\'on va pour… ». Silence is always penalised.', exp_zh:'换一种说法本身就是考查项：« c\'est l\'endroit où l\'on va pour… »。沉默才总是失分。'},
       {q:'Compléter : « En ___, je dirais que le télétravail présente plus d\'avantages. »', q_en:'Complete: « En ___, je dirais que le télétravail présente plus d\'avantages. »', opts:['définitive','définitif','définition','définir'], opts_zh:['définitive','définitif','définition','définir'], ans:0, exp:'« En définitive » est une locution figée qui introduit la conclusion, comme « en somme » ou « finalement ».', exp_en:'« En définitive » is a fixed phrase introducing a conclusion, like « en somme » or « finalement ».', exp_zh:'« En définitive » 是引出结论的固定短语，类似 « en somme »、« finalement »。'}
     ]
-  }
+  },
+  {
+    id:85, level:'tcf', examMin:45,
+    title:'Simulation blanche — Compréhension écrite',
+    title_en:'Mock Test — Reading Comprehension',
+    desc:'30 questions, 45 minutes, 7 documents. En temps réel.',
+    desc_en:'30 questions, 45 minutes, 7 documents. Against the clock.',
+    content:`<h2>⏱️ Simulation blanche — Compréhension écrite</h2>
+<p><b>30 questions · 45 minutes · 7 documents</b></p>
+<p>Cette épreuve blanche reprend le rythme réel du TCF Canada : l'examen officiel compte
+39 questions en 60 minutes, soit environ 92 secondes par question. Ici, 30 questions en
+45 minutes vous laissent 90 secondes. Le rythme est le même, la durée est plus courte.</p>
+<table><tr><th>Règle</th><th>Pourquoi</th></tr>
+<tr><td>Le chronomètre est global</td><td>Comme à l'examen : vous répartissez votre temps comme vous voulez</td></tr>
+<tr><td>Aucune correction avant la fin</td><td>Vous ne saurez pas si vous avez juste — c'est le cas le jour J</td></tr>
+<tr><td>Les documents sont en français</td><td>Les questions aussi : traduire l'épreuve la rendrait plus facile que l'examen</td></tr>
+<tr><td>Les textes vont du plus simple au plus complexe</td><td>C'est la progression réelle de l'épreuve</td></tr></table>
+<h3>Avant de commencer</h3>
+<table><tr><th>Conseil</th><th>Détail</th></tr>
+<tr><td>Lisez la question avant le texte</td><td>Vous saurez quoi chercher au lieu de tout lire</td></tr>
+<tr><td>Ne restez jamais bloqué</td><td>Une question difficile vaut autant qu'une facile. Répondez et avancez.</td></tr>
+<tr><td>Méfiez-vous des mots identiques</td><td>Une option qui reprend un mot du texte est souvent un piège</td></tr>
+<tr><td>Faites l'épreuve d'une traite</td><td>45 minutes sans interruption, sinon l'entraînement ne sert à rien</td></tr></table>
+<p><b>À la fin</b>, vous verrez votre score et la correction détaillée de chaque question.
+Un score de 24/30 ou plus vous situe dans la zone attendue pour NCLC 7 en compréhension écrite.</p>`,
+    quiz:[
+      {p:'ce1', q:'Que comprend le loyer de 545 € ?', opts:['Les charges','Le dépôt de garantie','L\'assurance habitation','L\'électricité'], ans:0, exp:'« 545 € charges comprises » : le loyer inclut les charges. Le dépôt de garantie est demandé en plus.', exp_en:'« 545 € charges comprises » means the rent includes the charges. The deposit is asked on top of it.', exp_zh:'« 545 € charges comprises » 表示房租已含杂费。押金是另外收取的。'},
+      {p:'ce1', q:'Quand peut-on visiter le logement ?', opts:['Le samedi matin, sur rendez-vous','Tous les jours','Le dimanche après-midi','À partir du 1er octobre seulement'], ans:0, exp:'« Visites uniquement le samedi matin, sur rendez-vous ». Le 1er octobre est la date d\'emménagement, pas de visite.', exp_en:'« Visites uniquement le samedi matin » — Saturday mornings only, by appointment. 1 October is the move-in date, not a viewing date.', exp_zh:'« Visites uniquement le samedi matin »：只在周六上午，需预约。10 月 1 日是入住日期，不是看房日期。'},
+      {p:'ce1', q:'Quelle information est exacte ?', opts:['Les animaux ne sont pas acceptés','Il y a un ascenseur','La cuisine n\'est pas équipée','Aucun garant n\'est demandé'], ans:0, exp:'« Pas d\'animaux » figure à la fin. L\'annonce précise « sans ascenseur », « cuisine équipée » et « dossier avec garant exigé ».', exp_en:'« Pas d\'animaux » appears at the end. The ad states « sans ascenseur » (no lift), an equipped kitchen, and that a guarantor is required.', exp_zh:'结尾写着 « Pas d\'animaux »（不接受宠物）。广告还写明无电梯、厨房已配齐、需要担保人。'},
+      {p:'ce2', q:'Que doivent faire les résidents avant le dimanche 5 octobre au soir ?', opts:['Déplacer leur véhicule','Payer les travaux','Prévenir le syndic','Libérer leur logement'], ans:0, exp:'« Les véhicules devront être déplacés avant le dimanche 5 octobre au soir. » C\'est la seule action demandée.', exp_en:'« Les véhicules devront être déplacés » — vehicles must be moved. It is the only action required.', exp_zh:'« Les véhicules devront être déplacés »：车辆必须挪走。这是唯一要求residents做的事。'},
+      {p:'ce2', q:'Que se passe-t-il si un véhicule n\'est pas déplacé à temps ?', opts:['Il est enlevé aux frais du propriétaire','Il est déplacé gratuitement','Une amende de 100 € est appliquée','Rien n\'est prévu'], ans:0, exp:'« Passé ce délai, ils seront enlevés aux frais de leur propriétaire » : c\'est le propriétaire qui paie l\'enlèvement.', exp_en:'« enlevés aux frais de leur propriétaire » — towed at the owner\'s expense. The owner pays.', exp_zh:'« enlevés aux frais de leur propriétaire »：将被拖走，费用由车主承担。'},
+      {p:'ce2', q:'Quand le chantier sera-t-il silencieux ?', opts:['Le samedi et le dimanche','Tous les jours après 17 h','Pendant trois semaines','Le lundi matin'], ans:0, exp:'« Aucun travail ne sera effectué le week-end. » Attention au piège : après 17 h il n\'y a pas de travaux non plus, mais la note ne parle que des nuisances de 8 h à 17 h en semaine ; la seule information explicite d\'arrêt total concerne le week-end.', exp_en:'« Aucun travail ne sera effectué le week-end » — no work at the weekend. That is the only explicit statement of a full stop.', exp_zh:'« Aucun travail ne sera effectué le week-end »：周末不施工。这是文中唯一明确说明完全停工的时间。'},
+      {p:'ce3', q:'Pourquoi la candidate n\'obtient-elle pas le poste visé ?', opts:['Il a été pourvu en interne','Son profil ne convenait pas','Elle a répondu trop tard','Le poste a été supprimé'], ans:0, exp:'« Le poste que vous visiez a été pourvu en interne la semaine dernière. » Le refus ne porte pas sur son profil, qui « a retenu notre attention ».', exp_en:'« pourvu en interne » — the post was filled internally. The refusal is not about her profile, which « a retenu notre attention ».', exp_zh:'« pourvu en interne »：职位已由内部人员填补。拒绝与她的履历无关，信中说她的履历「引起了我们的注意」。'},
+      {p:'ce3', q:'Que propose l\'entreprise ?', opts:['Un entretien pour un autre poste','Un stage à Rennes','Une formation en novembre','Un contrat à durée déterminée'], ans:0, exp:'« Nous nous permettons néanmoins de vous proposer un entretien pour un poste similaire. » Il s\'agit d\'un CDI, pas d\'un CDD ni d\'un stage.', exp_en:'The company offers an interview for a similar post. It is a permanent contract (CDI), not a fixed-term one or an internship.', exp_zh:'公司提议为一个类似职位安排面试。是无固定期限合同（CDI），不是定期合同，也不是实习。'},
+      {p:'ce3', q:'Que doit faire la candidate si la proposition l\'intéresse ?', opts:['Répondre avant le 20 septembre avec ses disponibilités','Se présenter à l\'agence de Rennes','Envoyer une nouvelle candidature','Attendre le mois de novembre'], ans:0, exp:'« Merci de nous le faire savoir avant le 20 septembre, en nous indiquant vos disponibilités. » Deux éléments sont demandés : la réponse et les disponibilités.', exp_en:'She must reply before 20 September and give her availability. Two things are asked: the answer and the availability.', exp_zh:'她须在 9 月 20 日前回复，并说明可面试的时间。信中要求两件事：答复和时间。'},
+      {p:'ce3', q:'Le ton de ce courriel est :', opts:['Formel','Familier','Ironique','Agressif'], ans:0, exp:'« Veuillez agréer, Madame, l\'expression de nos salutations distinguées » et « Nous nous permettons » sont des formules du registre formel. Repérer la formule de politesse finale suffit souvent à identifier le registre.', exp_en:'The closing formula and « Nous nous permettons » belong to the formal register. Spotting the closing formula is usually enough to identify the register.', exp_zh:'结尾的礼貌套语和 « Nous nous permettons » 都属于正式语体。看结尾套语通常就足以判断语体。'},
+      {p:'ce4', q:'Quelle est l\'idée principale du texte ?', opts:['L\'usage de la voiture baisse en ville mais reste indispensable ailleurs','La voiture va bientôt disparaître en France','Les transports collectifs sont partout insuffisants','Les villes devraient interdire la voiture'], ans:0, exp:'Le texte oppose deux situations : les grandes villes, où la voiture recule, et les communes rurales, où elle reste une nécessité. Le titre le résume : « La voiture recule, mais pas partout ».', exp_en:'The text contrasts two situations: big cities, where car use is falling, and rural areas, where it remains a necessity. The title says it: « mais pas partout ».', exp_zh:'文章对比两种情况：大城市汽车使用下降，农村地区汽车仍是必需品。标题已点明：« mais pas partout »（但并非到处如此）。'},
+      {p:'ce4', q:'Dans les communes rurales, la voiture est présentée comme :', opts:['Une nécessité','Un luxe','Un choix écologique','Une habitude ancienne'], ans:0, exp:'« Il ne s\'agit pas d\'un choix mais d\'une nécessité. » La formulation « ne… pas X mais Y » est la clé : elle écarte explicitement l\'idée de choix.', exp_en:'« Il ne s\'agit pas d\'un choix mais d\'une nécessité. » The structure « ne…pas X mais Y » explicitly rules out the idea of choice.', exp_zh:'« Il ne s\'agit pas d\'un choix mais d\'une nécessité »。« ne…pas X mais Y » 这一结构明确排除了「选择」的说法。'},
+      {p:'ce4', q:'Qu\'est-ce qui a modifié les habitudes dans les grandes villes ?', opts:['Les tramways et les pistes cyclables','Le prix du carburant','Le télétravail','Les zones à faibles émissions'], ans:0, exp:'« L\'ouverture de nouvelles lignes de tramway et la multiplication des pistes cyclables ont profondément modifié les habitudes. » Les zones à faibles émissions sont citées plus loin, comme mesure de contrainte, pas comme cause du changement.', exp_en:'New tram lines and cycle lanes changed habits. Low-emission zones are mentioned later as a restrictive measure, not as the cause of the change.', exp_zh:'新增有轨电车线路和自行车道改变了出行习惯。低排放区在后文出现，是限制性措施，而非改变的原因。'},
+      {p:'ce4', q:'Selon les spécialistes, que manque-t-il dans les territoires peu denses ?', opts:['Une alternative à la voiture','Des contraintes plus fortes','Des routes en meilleur état','Des campagnes d\'information'], ans:0, exp:'« Ce qui manque dans les territoires peu denses n\'est pas la contrainte, c\'est l\'alternative. » Encore une structure d\'opposition à repérer.', exp_en:'« Ce qui manque… n\'est pas la contrainte, c\'est l\'alternative. » Another contrast structure to spot.', exp_zh:'« Ce qui manque… n\'est pas la contrainte, c\'est l\'alternative. » 又是一个需要识别的对比结构。'},
+      {p:'ce4', q:'Que signifie « contre-productives » dans le dernier paragraphe ?', opts:['Qui produisent l\'effet inverse de celui recherché','Qui coûtent très cher','Qui sont difficiles à appliquer','Qui sont impopulaires'], ans:0, exp:'Le préfixe « contre- » indique l\'opposition : une mesure contre-productive obtient le résultat contraire à son objectif. Le texte va plus loin que « inefficaces », d\'où « voire ».', exp_en:'The prefix « contre- » marks opposition: a counter-productive measure achieves the opposite of its aim. « voire » signals a step beyond « inefficaces ».', exp_zh:'前缀 « contre- » 表示相反：适得其反的措施产生与目标相反的结果。« voire » 表示比「无效」更进一步。'},
+      {p:'ce5', q:'Quel format de télétravail s\'est imposé ?', opts:['Un format hybride de deux à trois jours à domicile','Cinq jours à domicile','Un retour complet au bureau','Un jour à domicile par mois'], ans:0, exp:'« Le travail à distance s\'est stabilisé autour d\'un format hybride : deux à trois jours par semaine à domicile. »', exp_en:'« un format hybride : deux à trois jours par semaine à domicile » — a hybrid pattern, two to three days at home.', exp_zh:'« un format hybride : deux à trois jours par semaine à domicile »：混合模式，每周在家两到三天。'},
+      {p:'ce5', q:'Selon le texte, le télétravail concerne surtout :', opts:['Les cadres et les professions intellectuelles','L\'industrie','Les métiers du soin','Le commerce'], ans:0, exp:'« Il reste très largement réservé aux cadres et aux professions intellectuelles ; il est pratiquement inexistant dans l\'industrie, le commerce et les métiers du soin. »', exp_en:'It remains largely limited to managers and intellectual professions, and is almost non-existent in industry, retail and care work.', exp_zh:'远程办公主要限于管理人员和脑力职业，在工业、商业和护理行业几乎不存在。'},
+      {p:'ce5', q:'Quel problème le texte signale-t-il pour les salariés recrutés à distance ?', opts:['Ils s\'intègrent plus lentement et partent plus tôt','Ils sont moins bien payés','Ils travaillent plus longtemps','Ils sont plus souvent malades'], ans:0, exp:'« Les salariés recrutés à distance mettent plus de temps à se sentir intégrés et quittent leur poste plus tôt. » Deux conséquences, toutes deux dans la bonne réponse.', exp_en:'Remotely hired employees take longer to feel integrated and leave sooner. Both consequences appear in the correct answer.', exp_zh:'远程招聘的员工需要更长时间才有归属感，离职也更早。两个后果都在正确答案里。'},
+      {p:'ce5', q:'Que désigne « l\'apprentissage informel » dans le texte ?', opts:['Ce qu\'on apprend en observant ses collègues au quotidien','Une formation en ligne non diplômante','L\'autoformation à domicile','Les cours du soir'], ans:0, exp:'Le texte le définit lui-même : « celui qui se fait en écoutant un collègue au téléphone, en posant une question par-dessus un bureau ». Quand un mot difficile est suivi d\'un tiret ou d\'une virgule explicative, la définition est souvent juste à côté.', exp_en:'The text defines it: what you pick up by overhearing a colleague or asking a question across a desk. When a difficult term is followed by a dash, the definition is usually right there.', exp_zh:'文中自己给出了定义：听同事打电话、隔着桌子提问时学到的东西。难词后面跟破折号时，定义通常就在旁边。'},
+      {p:'ce5', q:'Quelle est la position de l\'auteur sur un retour au bureau à plein temps ?', opts:['Il le juge improbable','Il le souhaite','Il le prévoit pour bientôt','Il ne se prononce pas'], ans:0, exp:'« Le retour en arrière paraît improbable. Les entreprises qui ont tenté d\'imposer cinq jours de présence ont, pour la plupart, reculé devant les départs. » L\'auteur ne dit pas s\'il le souhaite : il constate.', exp_en:'« Le retour en arrière paraît improbable » — the author judges it unlikely. He does not say whether he wants it; he observes.', exp_zh:'« Le retour en arrière paraît improbable »：作者认为不太可能。他没有表达是否希望，只是陈述观察。'},
+      {p:'ce6', q:'Quelle est la thèse défendue par l\'auteur ?', opts:['La responsabilité vient d\'abord de la conception des objets, pas du consommateur','Les consommateurs sont trop dépensiers','La réparation est toujours moins chère que le neuf','Les aides financières sont inutiles'], ans:0, exp:'« Il serait injuste de faire porter la responsabilité au seul consommateur », puis tout le deuxième paragraphe sur la conception. La thèse est là.', exp_en:'« Il serait injuste de faire porter la responsabilité au seul consommateur », followed by a whole paragraph on product design. That is the thesis.', exp_zh:'« Il serait injuste de faire porter la responsabilité au seul consommateur »，随后整段谈产品设计。这就是论点。'},
+      {p:'ce6', q:'Que reproche l\'auteur à la conception des appareils ?', opts:['Elle empêche matériellement la réparation','Elle utilise des matériaux polluants','Elle rend les appareils trop lourds','Elle privilégie le design sur la performance'], ans:0, exp:'« Pièces collées plutôt que vissées, composants indissociables, documentation réservée aux réseaux agréés. » Ce sont des obstacles matériels, pas esthétiques ni écologiques.', exp_en:'Glued rather than screwed parts, inseparable components, restricted documentation: physical obstacles to repair, not aesthetic or ecological ones.', exp_zh:'粘合而非螺丝固定、部件不可拆分、技术资料仅限授权网点：这些是物理上的维修障碍，与美观或环保无关。'},
+      {p:'ce6', q:'Comment l\'auteur juge-t-il les mesures récentes ?', opts:['Bonnes mais insuffisantes','Totalement inutiles','Excessives','Parfaitement adaptées'], ans:0, exp:'« Elles vont dans la bonne direction. Elles restent insuffisantes. » Les deux phrases doivent être lues ensemble : c\'est un jugement nuancé, ni rejet ni approbation.', exp_en:'« vont dans la bonne direction » but « restent insuffisantes ». Both sentences must be read together: a qualified judgement, neither rejection nor approval.', exp_zh:'「方向正确」但「仍然不够」。两句要一起读：这是有保留的评价，既非否定也非全然赞同。'},
+      {p:'ce6', q:'Selon l\'auteur, quelle condition empêche les mesures d\'être efficaces ?', opts:['Le prix trop bas des appareils neufs','Le manque de réparateurs','L\'ignorance des consommateurs','La lenteur des livraisons de pièces'], ans:0, exp:'« Elles restent insuffisantes tant que le neuf demeure aussi bon marché. » La locution « tant que » introduit précisément la condition.', exp_en:'« tant que le neuf demeure aussi bon marché » — the conjunction « tant que » introduces exactly this condition.', exp_zh:'« tant que le neuf demeure aussi bon marché »：连词 « tant que »（只要……就）正是引出这个条件。'},
+      {p:'ce6', q:'Quel est le rôle de l\'exemple chiffré à la fin du texte ?', opts:['Rendre concret l\'écart de prix qui décourage la réparation','Donner le prix moyen d\'un lave-linge en France','Comparer deux marques','Montrer que la réparation est rentable'], ans:0, exp:'L\'auteur oppose 300 € (neuf) à 180 € (réparation) pour montrer que l\'écart est trop faible pour convaincre. L\'exemple illustre l\'argument, il n\'apporte pas une statistique.', exp_en:'The author contrasts €300 for a new machine with €180 for a repair to show the gap is too small to persuade. The figure illustrates the argument; it is not a statistic.', exp_zh:'作者用新机 300 欧元与维修 180 欧元作对比，说明差价太小不足以说服人。这个例子是用来支撑论点，而不是提供统计数据。'},
+      {p:'ce7', q:'Sur quel point Camille et Julien sont-ils d\'accord ?', opts:['L\'intérêt des séances de vérification en classe','La nécessité d\'interdire l\'outil','L\'inutilité de l\'écriture personnelle','Le niveau des élèves de seconde'], ans:0, exp:'Julien écrit : « Je ne conteste pas l\'intérêt de ces séances, et je les pratique moi-même. » C\'est l\'accord explicite. Repérer les concessions est la clé de ce type de question.', exp_en:'Julien writes that he does not dispute the value of those sessions and runs them himself. Spotting concessions is the key to this type of question.', exp_zh:'Julien 写道他不否认这类课程的价值，自己也在上。识别让步语句是这类题目的关键。'},
+      {p:'ce7', q:'Quelle est l\'inquiétude principale de Julien ?', opts:['Que les élèves n\'acquièrent pas la compétence que l\'outil remplace','Que les élèves trichent aux examens','Que les professeurs soient remplacés','Que les copies soient trop courtes'], ans:0, exp:'« Je demande qu\'on n\'introduise pas l\'outil avant que la compétence qu\'il remplace ne soit solidement acquise. » Il ne parle jamais de tricherie.', exp_en:'He asks that the tool not be introduced before the skill it replaces is firmly acquired. He never mentions cheating.', exp_zh:'他要求：在被替代的能力牢固掌握之前，不要引入这个工具。他从未提到作弊。'},
+      {p:'ce7', q:'Que reproche Camille à l\'interdiction ?', opts:['Elle est inefficace car les élèves utilisent déjà l\'outil','Elle coûte trop cher à mettre en place','Elle est contraire à la loi','Elle défavorise les élèves les plus faibles'], ans:0, exp:'« Interdire ces outils à l\'école est une bataille perdue d\'avance : les élèves les utilisent déjà. » Le deux-points introduit la justification.', exp_en:'« une bataille perdue d\'avance : les élèves les utilisent déjà » — the colon introduces the justification.', exp_zh:'« une bataille perdue d\'avance : les élèves les utilisent déjà »：冒号后面就是理由。'},
+      {p:'ce7', q:'Que signifie « en amont » dans le texte de Julien ?', opts:['À une étape antérieure','En dehors de l\'école','Au niveau supérieur','De façon théorique'], ans:0, exp:'« Ce qui m\'inquiète se situe en amont » : avant les séances de vérification, à un stade antérieur du parcours. L\'image vient du cours d\'une rivière.', exp_en:'« en amont » = upstream, at an earlier stage — before those verification sessions. The image comes from a river.', exp_zh:'« en amont » = 上游，指更早的阶段——在那些核查课之前。这个说法来自河流的比喻。'},
+      {p:'ce7', q:'Quelle affirmation résume le mieux la différence entre les deux positions ?', opts:['Ils divergent sur le moment d\'introduire l\'outil, pas sur son usage','L\'un veut l\'interdire, l\'autre l\'autoriser','Ils s\'opposent sur le rôle du professeur','L\'un enseigne les lettres, l\'autre l\'histoire'], ans:0, exp:'Aucun des deux ne demande l\'interdiction, et tous deux pratiquent l\'exercice. Le désaccord porte sur le moment : Julien veut attendre que la compétence soit acquise. Dans une comparaison de textes, cherchez toujours ce qui est partagé avant ce qui oppose.', exp_en:'Neither asks for a ban, and both run the exercise. The disagreement is about timing: Julien wants to wait until the skill is acquired. In a text comparison, always look for what is shared before what divides.', exp_zh:'两人都不要求禁止，也都在开展这项练习。分歧在于时机：Julien 希望等能力掌握之后再引入。做文本对比题时，先找共识，再找分歧。'},
+    ]
+  },
 ];
 
 /* ══════════════════════════════════════
@@ -22856,7 +23049,9 @@ function _shuffle(arr) {
 }
 
 function _buildQuizData(rawQuiz) {
-  var indices = _shuffle(Array.from({length: rawQuiz.length}, function(_, k){ return k; }));
+  // En mode examen, on garde l'ordre : les questions suivent les textes et la difficulte croissante.
+  var _seq = Array.from({length: rawQuiz.length}, function(_, k){ return k; });
+  var indices = (currentLesson && currentLesson.examMin) ? _seq : _shuffle(_seq);
   return indices.map(function(origIdx) {
     var q = rawQuiz[origIdx];
     var _zhEntry = (lang==='zh' && typeof QUIZ_ZH !== 'undefined' && QUIZ_ZH[currentLesson.id])
@@ -22892,6 +23087,10 @@ function startQuiz() {
   var l = currentLesson;
   var rawQuiz = (lang==='en' && typeof QUIZ_EN !== 'undefined' && QUIZ_EN[l.id]) ? QUIZ_EN[l.id] : l.quiz;
   quizIndex = 0; quizScore = 0; quizAnswered = false; quizCombo = 0; window.wrongAnswersList = []; window._wrongAnswerDetails = []; _clearQuizTimer(); window._quizStartTime = Date.now();
+  // Mode examen : chrono global au lieu du minuteur de 25 s par question
+  _clearExamTimer();
+  window._examTotalMs = (l.examMin ? l.examMin * 60000 : 0);
+  window._examEnd = window._examTotalMs ? (Date.now() + window._examTotalMs) : 0;
   _quizData = _buildQuizData(rawQuiz);
   document.getElementById('lesson-view').classList.remove('active');
   document.getElementById('quiz-view').classList.add('active');
@@ -22899,6 +23098,7 @@ function startQuiz() {
   } catch(_e) { console.warn('[FG] startQuiz error:', _e); }
 }
 
+function _clearQuizTimerAndExam() { _clearQuizTimer(); _clearExamTimer(); }
 function _clearQuizTimer() {
   if (_quizTimerInterval) { clearInterval(_quizTimerInterval); _quizTimerInterval = null; }
   _quizDeadlineTs = 0;
@@ -22933,6 +23133,37 @@ function _startQuizTimer() {
   }, 50);
 }
 
+var _examInterval = null;
+function _clearExamTimer() {
+  if (_examInterval) { clearInterval(_examInterval); _examInterval = null; }
+  window._examEnd = 0; window._examTotalMs = 0;
+}
+function _fmtMMSS(sec) {
+  var m = Math.floor(sec / 60), s = sec % 60;
+  return m + ':' + (s < 10 ? '0' : '') + s;
+}
+function _startExamTimer() {
+  if (_examInterval) return; // deja lance : le chrono ne se remet pas a zero entre les questions
+  var wrap = document.getElementById('quiz-timer-wrap');
+  var fill = document.getElementById('quiz-timer-fill');
+  var num  = document.getElementById('quiz-timer-num');
+  if (!wrap) return;
+  wrap.style.display = 'flex';
+  if (fill) fill.style.transition = 'width 1s linear';
+  function tick() {
+    var left = Math.max(0, Math.round((window._examEnd - Date.now()) / 1000));
+    var pct  = window._examTotalMs ? Math.max(0, (window._examEnd - Date.now()) / window._examTotalMs * 100) : 0;
+    if (fill) { fill.style.width = pct + '%'; fill.classList.toggle('urgent', left <= 120); }
+    if (num)  { num.textContent = _fmtMMSS(left); num.classList.toggle('urgent', left <= 120); }
+    if (left <= 0) {
+      _clearExamTimer();
+      try { showResult(); } catch(_e) { console.warn('[FG] fin de chrono examen', _e); }
+    }
+  }
+  tick();
+  _examInterval = setInterval(tick, 500);
+}
+
 function _renderQD(dataArr) {
   var d = dataArr[quizIndex];
   var total = dataArr.length;
@@ -22948,6 +23179,14 @@ function _renderQD(dataArr) {
   if (qNumEl) qNumEl.textContent = t('question') + ' ' + (quizIndex + 1) + ' ' + t('of') + ' ' + total;
   var fb = document.getElementById('q-feedback');
   if (fb) { fb.innerHTML = ''; fb.className = 'feedback-box'; }
+  // Texte de lecture associe a la question (comprehension ecrite)
+  var pEl = document.getElementById('q-passage');
+  if (pEl) {
+    var pKey = d.q && d.q.p;
+    var pHtml = (pKey && typeof PASSAGES !== 'undefined' && PASSAGES[pKey]) ? PASSAGES[pKey] : '';
+    if (pHtml) { pEl.innerHTML = pHtml; pEl.style.display = 'block'; pEl.scrollTop = 0; }
+    else { pEl.innerHTML = ''; pEl.style.display = 'none'; }
+  }
   var nextBtn = document.getElementById('next-btn');
   if (nextBtn) { nextBtn.classList.remove('show'); nextBtn.onclick = nextQuestion; }
   var backBtn = document.getElementById('quiz-back-btn');
@@ -22957,7 +23196,7 @@ function _renderQD(dataArr) {
   else if (d.type === 'type') _renderType(d);
   else if (d.type === 'listen') _renderListen(d);
   else _renderMCQ(d);
-  _startQuizTimer();
+  if (window._examEnd) _startExamTimer(); else _startQuizTimer();
 }
 
 function _esc(s) { return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
@@ -23034,12 +23273,28 @@ function _selectAnswer(i) {
         correct: (d.opts && d.ans !== undefined) ? d.opts[d.ans] : ''
       });
   }
+  var _exam = !!window._examEnd;
   var opts = document.querySelectorAll('.quiz-option');
   opts.forEach(function(btn, j) {
     btn.disabled = true;
+    if (_exam) { if (j === i) { btn.style.borderColor = 'var(--indigo)'; btn.style.fontWeight = '700'; } return; }
     if (j === d.ans) { btn.style.background='#10B981'; btn.style.borderColor='#10B981'; btn.style.color='white'; }
     else if (j === i && !correct) { btn.style.background='#EF4444'; btn.style.borderColor='#EF4444'; btn.style.color='white'; }
   });
+  if (_exam) {
+    // Conditions d'examen : reponse enregistree, aucune correction avant la fin
+    var fbE = document.getElementById('q-feedback');
+    if (fbE) {
+      fbE.className = 'feedback-box show';
+      fbE.innerHTML = '<div style="font-weight:600">' +
+        (lang==='en' ? 'Answer recorded' : lang==='zh' ? '答案已记录' : 'Réponse enregistrée') + '</div>' +
+        '<div style="opacity:0.75;font-size:13px;margin-top:3px">' +
+        (lang==='en' ? 'Corrections at the end of the test.' : lang==='zh' ? '测试结束后统一批改。' : 'Correction à la fin de l\'épreuve.') + '</div>';
+    }
+    var nb = document.getElementById('next-btn');
+    if (nb) nb.classList.add('show');
+    return;
+  }
   var blankSpan = document.getElementById('fill-blank-span');
   if (blankSpan) {
     blankSpan.textContent = d.opts[i];
@@ -23101,7 +23356,7 @@ function nextQuestion() {
 
 
 function showResult() {
-  _clearQuizTimer();
+  _clearQuizTimerAndExam();
   var dataArr = window._wrongMode ? window._wrongOnlyQuizData : _quizData;
   var total = dataArr.length;
   var pct = total > 0 ? Math.round(quizScore / total * 100) : 0;
@@ -23691,7 +23946,7 @@ function clearLessonSearch() {
   if (input) { input.value = ''; filterLessons(''); input.focus(); }
 }
 function closeQuiz() {
-  _clearQuizTimer();
+  _clearQuizTimerAndExam();
   document.getElementById('quiz-view').classList.remove('active');
   document.getElementById('lesson-view').classList.add('active');
   renderLessonPage();
